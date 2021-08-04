@@ -27,9 +27,37 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/bootstrap.css",
+              "src/assets/css/flexslider.css",
+              "src/assets/css/animations.css",
+              "src/assets/css/font-awesome.css",
+              "src/assets/css/datepicker.css",
+              "src/assets/css/swipebox.css",
+              "src/assets/css/meanmenu.css",
+              "src/assets/css/main.css",
+              "src/assets/css/custom-responsive.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/jquery-2.2.3.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/jquery.flexslider-min.js",
+              "src/assets/js/jquery.swipebox.min.js",
+              "src/assets/js/jquery.isotope.min.js",
+              "src/assets/js/jquery.appear.js",
+              "src/assets/js/jquery.ui.core.min.js",
+              "src/assets/js/jquery.ui.datepicker.min.js",
+              "src/assets/js/jquery.validate.min.js",
+              "src/assets/js/jquery.form.js",
+              "src/assets/js/jquery.autosize.min.js",
+              "src/assets/js/jquery.meanmenu.min.js",
+              "src/assets/js/jquery.velocity.min.js",
+              "src/assets/js/jquery-twitterFetcher.js",
+              "src/assets/js/respond.min.js",
+              "src/assets/js/jquery-migrate-1.2.1.min.js",
+              "src/assets/js/custom.js",
+              "src/assets/js/admin.js"
+            ]
           },
           "configurations": {
             "production": {
