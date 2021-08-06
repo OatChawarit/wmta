@@ -62,8 +62,10 @@ html[xmlns] .slides {display: block;}
 /* Direction Nav */
 .flex-direction-nav {*height: 0;}
 .flex-direction-nav a  { display: block; width:53px; height:53px; margin: -27px 0 0; position: absolute; top: 50%; z-index: 10; overflow: hidden; opacity: 0; cursor: pointer;font-size: 0; -webkit-transition: all .3s ease; -moz-transition: all .3s ease; transition: all .3s ease; border-radius: 50%;}
-.flex-direction-nav .flex-prev { left: -50px; background: url("../images/slider-left-arrow.png") center no-repeat #f15b5a; }
-.flex-direction-nav .flex-next { right: -50px; text-align: right; background: url("../images/slider-right-arrow.png") center no-repeat #f15b5a;}
+/* .flex-direction-nav .flex-prev { left: -50px; background: url("../images/slider-left-arrow.png") center no-repeat #f15b5a; } */
+/* .flex-direction-nav .flex-next { right: -50px; text-align: right; background: url("../images/slider-right-arrow.png") center no-repeat #f15b5a;} */
+.flex-direction-nav .flex-prev { left: -50px; background: url("../images/slider-left-arrow.png") center no-repeat #288a72; }
+.flex-direction-nav .flex-next { right: -50px; text-align: right; background: url("../images/slider-right-arrow.png") center no-repeat #288a72; } 
 .flexslider:hover .flex-prev {left: 10px; opacity: 1;}
 .flexslider:hover .flex-next {right: 10px; opacity: 1;}
 .flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover { opacity: 1; background-color: #898e99;}
