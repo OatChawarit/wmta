@@ -46,7 +46,7 @@
                 </li>
                 
                 <li>
-                    <a href="">{{'Our Services' | translate}}</a>
+                    <a >{{'Our Services' | translate}}</a>
                     <ul>
                         <li><a href="">{{'Personal Assistant & Appointment with Doctor' | translate }}</a></li>
                         <li><a href="">{{'Tourism Services' | translate}}</a></li>
@@ -98,16 +98,17 @@
                 </li>
 
                 <li>
-                    <a href="/home">{{'Join Us' | translate}}</a>
+                    <a >{{'Join Us' | translate}}</a>
                     <ul>
-                        <li><a href="product-detail.html">{{'About Us' | translate}}</a></li>      
-                        <li><a href="product-detail.html">{{'Contact Us' | translate}}</a></li>      
-                        <li><a href="product-detail.html">{{'For Business Partner Registration' | translate}}</a></li>         
+                        <li><a href="/pages/about-us">{{'About Us' | translate}}</a></li>      
+                        <li><a href="/pages/contact-us">{{'Contact Us' | translate}}</a></li>      
+                        <li><a href="/home">{{'For Business Partner Registration' | translate}}</a></li>         
                     </ul>     
                 </li>
 
                 <li>
                     <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
+                        <option value="" selected disabled>Language</option>
                         <option value="en">EN</option>
                         <option value="th">TH</option>
                       </select>

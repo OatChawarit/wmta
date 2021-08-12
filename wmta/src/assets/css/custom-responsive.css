@@ -407,20 +407,24 @@
     min-height: inherit;
   }
   .mean-container .mean-bar .mean-nav {
-    background-color: #53c3dd;
+    /* background-color: #53c3dd; */
+    background-color: #288a72;
     margin-top: 4px;
   }
   .mean-container .mean-bar .mean-nav ul li a {
-    border-color: #73d1e7;
+    /* border-color: #73d1e7; */
+    border-color: #00e6ac;
   }
   .mean-container .mean-bar .mean-nav ul li a.mean-expand {
     height: 24px;
   }
   .mean-container .mean-bar .mean-nav ul li a.mean-expand:hover {
-    background-color: #52c1dc;
+    /* background-color: #52c1dc; */
+    background-color: #288a72;
   }
   .mean-container .mean-bar a.meanmenu-reveal {
-    background-color: #67c9e0;
+    /* background-color: #67c9e0; */
+    background-color: #288a72;
     padding: 13px 14px;
     top: -40px;
   }
@@ -604,7 +608,8 @@
     margin-bottom: 15px;
   }
   .mean-container .mean-bar {
-    background: #53c3dd;
+    /* background: #53c3dd; */
+    background: #288a72;
     margin-top: 0px;
     min-height: 40px;
     padding: 0;
