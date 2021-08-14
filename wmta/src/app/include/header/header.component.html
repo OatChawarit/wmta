@@ -37,16 +37,10 @@
             <ul class="header-nav clearfix" id="menu-main-menu">
                 <li class="current-menu-item page_item">
                     <a href="/home">{{'Home' | translate}}</a>
-                    <ul>
-                        <li><a href="home-variation2.html">Home Variation 2</a></li>
-                        <li><a href="home-variation3.html">Home Variation 3</a></li>
-                        <li><a href="home-variation4.html">Home Variation 4</a></li>
-
-                    </ul>
                 </li>
                 
                 <li>
-                    <a href="">{{'Our Services' | translate}}</a>
+                    <a >{{'Our Services' | translate}}</a>
                     <ul>
                         <li><a href="">{{'Personal Assistant & Appointment with Doctor' | translate }}</a></li>
                         <li><a href="">{{'Tourism Services' | translate}}</a></li>
@@ -56,17 +50,18 @@
                         <li><a href="">{{'Medical Treatment' | translate}}</a></li>
                         <li><a href="">{{'Rehabilitation Center' | translate}}</a></li>
                         <li><a href="">{{'Wellness Retreat' | translate}}</a></li>
-                        <li><a href="">{{'Elderly Care' | translate}}</a></li>
+                        <!-- <li><a href="">{{'Elderly Care' | translate}}</a></li> -->
                     </ul>
                 </li>
 
                 <li>
-                    <a href="/home">{{'Doctors' | translate}}</a>
-                    <ul>
+                    <!-- <a href="/doctor">{{'Doctors' | translate}}</a> -->
+                    <a href="">{{'Elderly Care' | translate}}</a>
+                    <!-- <ul>
                         <li>
                             <a href="doctors-four-columns.html">4 Columns Doctors</a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </li>
 
                 <li>
@@ -75,17 +70,6 @@
 
                 <li>
                     <a href="/home">{{'Media & CSR' | translate}}</a>
-                    <ul>
-                        <li>
-                            <a href="gallery-four-columns.html">4 Columns Gallery</a>
-                        </li>
-                        <li>
-                            <a href="gallery-three-columns.html">3 Columns Gallery</a>
-                        </li>
-                        <li>
-                            <a href="gallery-two-columns.html">2 Columns Gallery</a>
-                        </li>
-                    </ul>
                 </li>
 
                 <li>
@@ -98,16 +82,17 @@
                 </li>
 
                 <li>
-                    <a href="/home">{{'Join Us' | translate}}</a>
+                    <a >{{'Join Us' | translate}}</a>
                     <ul>
-                        <li><a href="product-detail.html">{{'About Us' | translate}}</a></li>      
-                        <li><a href="product-detail.html">{{'Contact Us' | translate}}</a></li>      
-                        <li><a href="product-detail.html">{{'For Business Partner Registration' | translate}}</a></li>         
+                        <li><a href="/pages/about-us">{{'About Us' | translate}}</a></li>      
+                        <li><a href="/pages/contact-us">{{'Contact Us' | translate}}</a></li>      
+                        <li><a href="/home">{{'For Business Partner Registration' | translate}}</a></li>         
                     </ul>     
                 </li>
 
                 <li>
                     <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
+                        <option value="" selected disabled>Language</option>
                         <option value="en">EN</option>
                         <option value="th">TH</option>
                       </select>

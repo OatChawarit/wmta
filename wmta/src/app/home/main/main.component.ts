@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { AppComponent } from 'src/app/app.component';
+import { AuthService } from '../login/service/auth.service';
 
 @Component({
   selector: 'app-main',
@@ -6,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
-  constructor() { }
+  translate : any;
+  constructor(private trans: TranslateService,
+    private AppServ : AppComponent) { 
+      
+    }
 
   ngOnInit(): void {
+   
   }
 
 }

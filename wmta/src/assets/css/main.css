@@ -532,7 +532,7 @@ form input[type="password"],
 form input[type="text"],
 form textarea {
   width: 100%;
-  height: auto;
+  /* height: auto; */
   border: 1px solid #dcdee4;
   background-color: #fff;
   margin-bottom: 20px;
