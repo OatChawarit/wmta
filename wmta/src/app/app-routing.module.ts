@@ -9,6 +9,8 @@ const routes: Routes = [
   { path: 'pages', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)},
   { path: 'doctor', loadChildren: () => import('./doctors/doctors.module').then(m => m.DoctorsModule)},
   { path: 'concierge-service', loadChildren: () => import('./concierge-service/concierge-service.module').then(m => m.ConciergeServiceModule)},
+  { path: 'medical-treatment', loadChildren: () => import('./medical-treatment/medical-treatment.module').then(m => m.MedicalTreatmentModule)},
+
 
   { path: 'login',component: LoginComponent},
 ];
