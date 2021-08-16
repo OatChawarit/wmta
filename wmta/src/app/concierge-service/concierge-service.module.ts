@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { ConciergeServiceRoutingModule } from './concierge-service-routing.module';
 import { PersonalAssistantComponent } from './personal-assistant/personal-assistant.component';
+import { EnquiryFormComponent } from './enquiry-form/enquiry-form.component';
 
 
 @NgModule({
   declarations: [
-    PersonalAssistantComponent
+    PersonalAssistantComponent,
+    EnquiryFormComponent
   ],
   imports: [
     CommonModule,
