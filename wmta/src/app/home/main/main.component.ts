@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AppComponent } from 'src/app/app.component';
 import { AuthService } from '../login/service/auth.service';
@@ -9,14 +10,14 @@ import { AuthService } from '../login/service/auth.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  translate : any;
-  constructor(private trans: TranslateService,
-    private AppServ : AppComponent) { 
-      
-    }
+
+  constructor(private AppServ: AppComponent, private router: Router) {
+
+  }
 
   ngOnInit(): void {
-   
+    //this.AppServ.translate.use('th');
+    //this.AppServ.translate.addLangs(['en', 'th']);
   }
 
 }

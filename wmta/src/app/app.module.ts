@@ -34,6 +34,9 @@ import { MainComponent } from './home/main/main.component';
       }
     })
   ],
+  exports: [
+    TranslateModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
