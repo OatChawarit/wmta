@@ -23,14 +23,15 @@ export class HeaderComponent implements OnInit {
   menu = [
     {name: 'home',status:''},
     {name: 'concierge-service',status:''},
+    {name: 'Our Services',status:''},
   ];
 
   ngOnInit(): void {
-    this.onload;
+    this.onload();
   }
 
   // คำสั่งสำหรับตอนโหลดครั้งแรกทั้งหมด
-  onload(){
+  onload():void {
     this.currentURL = window.location.href;
     this.menu.forEach((item,i)=>{
       let currents = this.currentURL.search(item.name);
