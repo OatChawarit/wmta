@@ -3,17 +3,17 @@
     <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="row">
             <div class="col-md-5 ">
-               
+
             </div>
             <!--opening hours-->
             <div class="col-md-7 text-right">
                 <p>
-                        <!-- <a href="home/login" class="text-forgot"> ลงชื่อเข้าใช้ </a> -->
-                        <!-- <a href="home/forgetpassword"><b class="text-forgot">ลืมรหัสผ่าน</b></a> -->
-                        <a href="home/login" ><span>&nbsp; testname lastname &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
-                        <a href="javascript:void(0);" ><b class="text-forgot">{{'Logout' | translate}}</b></a>
+                    <!-- <a href="home/login" class="text-forgot"> ลงชื่อเข้าใช้ </a> -->
+                    <!-- <a href="home/forgetpassword"><b class="text-forgot">ลืมรหัสผ่าน</b></a> -->
+                    <a href="home/login"><span>&nbsp; testname lastname &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
+                    <a href="javascript:void(0);"><b class="text-forgot">{{'Logout' | translate}}</b></a>
                 </p>
-                
+
             </div>
 
         </div>
@@ -35,13 +35,13 @@
         <!-- Main Navigation -->
         <nav class="main-menu">
             <ul class="header-nav clearfix" id="menu-main-menu">
-                <li class="page_item">
+                <li class="page_item {{activeMenu('home')}}">
                     <a id="home" href="/home" class="">{{'Home' | translate}}</a>
                 </li>
-                <li>
+                <li class="page_item {{activeMenu('concierge-service')}}">
                     <a id="pa" href="/concierge-service/personal-assistant" class="">{{'All Concierge Services' | translate}}</a>
                 </li>
-                <li>
+                <li class="page_item {{activeMenu('Our Services')}}">
                     <a id="os" class="">{{'Our Services' | translate}}</a>
                     <ul>
                         <li><a href="/medical-treatment/">{{'Medical Treatment' | translate }}</a></li>
@@ -54,7 +54,7 @@
                         <li><a href="/concierge-service/personal-assistant">{{'Rehabilitation Center' | translate}}</a></li>
                         <li><a href="/concierge-service/personal-assistant">{{'Wellness Retreat' | translate}}</a></li>
                         <!-- <li><a href="">{{'Elderly Care' | translate}}</a></li> -->
-                        <li><a href="/doctor">{{'Our Doctors' | translate}}</a></li> 
+                        <li><a href="/doctor">{{'Our Doctors' | translate}}</a></li>
                     </ul>
                 </li>
 
@@ -76,12 +76,12 @@
                 </li>
 
                 <li>
-                    <a >{{'Join Us' | translate}}</a>
+                    <a>{{'Join Us' | translate}}</a>
                     <ul>
-                        <li><a href="/pages/about-us">{{'About Us' | translate}}</a></li>      
-                        <li><a href="/pages/contact-us">{{'Contact Us' | translate}}</a></li>      
-                        <li><a href="/home">{{'For Business Partner Registration' | translate}}</a></li>         
-                    </ul>     
+                        <li><a href="/pages/about-us">{{'About Us' | translate}}</a></li>
+                        <li><a href="/pages/contact-us">{{'Contact Us' | translate}}</a></li>
+                        <li><a href="/home">{{'For Business Partner Registration' | translate}}</a></li>
+                    </ul>
                 </li>
 
                 <li>
@@ -96,11 +96,11 @@
                         <li><a href="#" (cilck)="switchLang('th')">TH</a></li>      
                     </ul>      -->
                 </li>
-                
+
             </ul>
         </nav>
 
         <div id="responsive-menu-container"></div>
-        
+
     </div>
 </header>
