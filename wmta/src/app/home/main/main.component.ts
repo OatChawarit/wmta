@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+
 import { AppComponent } from 'src/app/app.component';
 import { AuthService } from '../login/service/auth.service';
 
@@ -11,7 +12,7 @@ import { AuthService } from '../login/service/auth.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private AppServ: AppComponent, private router: Router) {
+  constructor(private AppServ: AppComponent, private router: Router, public translate: TranslateService) {
 
   }
 

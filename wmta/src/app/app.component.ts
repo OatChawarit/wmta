@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { pipe } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
@@ -10,23 +10,18 @@ import { pipe } from 'rxjs';
 
 export class AppComponent {
   title = 'wmta';
-  translate: TranslateService;
 
-  constructor(translate: TranslateService) {
-    this.translate = translate;
-    this.translate.addLangs(['en', 'th']); 
-    this.translate.setDefaultLang('en');
-  }
-  // constructor(public transLate: TranslateService) {
-  //   transLate.addLangs(['en', 'th']); 
-  //   transLate.setDefaultLang('en'); 
-  //   transLate.use('en');
-  //   localStorage.setItem("setLang", 'en');
-  //  }
+  constructor(public translate: TranslateService) {
+    // transLate.addLangs(['en', 'th']); 
+    // transLate.setDefaultLang('en'); 
+    // transLate.use('en');
+   }
   
    switchLang(lang: string) {
     this.translate.use(lang);
+    //this.changeLange();
   }
+
 }
 
 

@@ -3,7 +3,7 @@
     <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="row">
             <div class="col-md-5 ">
-
+     
             </div>
             <!--opening hours-->
             <div class="col-md-7 text-right">
@@ -85,16 +85,20 @@
                 </li>
 
                 <li>
-                    <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
+                    <!-- <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
                         <option value="" selected disabled>Language</option>
                         <option value="en">EN</option>
                         <option value="th">TH</option>
+                      </select> -->
+                      <select #langSelect (change)="translate.use(langSelect.value)" class="form-control" >
+                        <option value="" disabled>Language</option>
+                        <option
+                          *ngFor="let lang of translate.getLangs()"
+                          [value]="lang"
+                          [attr.selected]="lang === translate.currentLang ? '' : null"
+                        >{{lang}}</option>
                       </select>
-                    <!-- <a href="">Language</a>
-                    <ul>
-                        <li><a href="#" (cilck)="switchLang('en')">EN</a></li>      
-                        <li><a href="#" (cilck)="switchLang('th')">TH</a></li>      
-                    </ul>      -->
+                    <!-- <a href="">Language</a> -->
                 </li>
 
             </ul>
@@ -102,5 +106,3 @@
 
         <div id="responsive-menu-container"></div>
 
-    </div>
-</header>

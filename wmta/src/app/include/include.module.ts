@@ -5,6 +5,7 @@ import { IncludeRoutingModule } from './include-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
+import { I18nModule } from '../i18n/i18n.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     CommonModule,
-    IncludeRoutingModule
+    IncludeRoutingModule,
+    I18nModule
   ]
 })
 export class IncludeModule { }

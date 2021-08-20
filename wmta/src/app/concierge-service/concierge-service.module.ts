@@ -5,6 +5,7 @@ import { ConciergeServiceRoutingModule } from './concierge-service-routing.modul
 import { PersonalAssistantComponent } from './personal-assistant/personal-assistant.component';
 import { EnquiryFormComponent } from './enquiry-form/enquiry-form.component';
 
+import { I18nModule } from '../i18n/i18n.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { EnquiryFormComponent } from './enquiry-form/enquiry-form.component';
   ],
   imports: [
     CommonModule,
-    ConciergeServiceRoutingModule
+    ConciergeServiceRoutingModule,
+    I18nModule
   ]
 })
 export class ConciergeServiceModule { }

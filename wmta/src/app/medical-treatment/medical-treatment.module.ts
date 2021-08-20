@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MedicalTreatmentRoutingModule } from './medical-treatment-routing.module';
 import { ListComponent } from './list/list.component';
+import { I18nModule } from '../i18n/i18n.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ListComponent } from './list/list.component';
   ],
   imports: [
     CommonModule,
-    MedicalTreatmentRoutingModule
+    MedicalTreatmentRoutingModule,
+    I18nModule
   ]
 })
 export class MedicalTreatmentModule { }

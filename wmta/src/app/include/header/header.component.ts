@@ -13,9 +13,9 @@ export class HeaderComponent implements OnInit {
 
 
   constructor(
-    private AppServ : AppComponent,
     private route : ActivatedRoute,
     private router : Router,
+    public translate: TranslateService
     ) {
 
   }
@@ -40,10 +40,6 @@ export class HeaderComponent implements OnInit {
   }
 
 
-  switchLang(lang: string) {
-    this.AppServ.switchLang(lang);
-  }
-
 
   /**
    * คำสั่ง ActiveMenu
@@ -53,7 +49,7 @@ export class HeaderComponent implements OnInit {
   activeMenu(str:string) {
     let result :any =  this.menu.filter(item=> item.name == str)
     if(result.length > 0) {
-    return result[0].status;
+      return result[0].status;
     }else{
       console.warn(`Can't find ${str} menu item`);
       return '';

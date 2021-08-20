@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-enquiry-form',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EnquiryFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(public translate: TranslateService) { }
 
   ngOnInit(): void {
+    //this.changeLange();
   }
+
 
 }
