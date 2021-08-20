@@ -30,10 +30,10 @@ export class I18nModule {
   constructor(translate: TranslateService, translateCacheService: TranslateCacheService) {
 
     translateCacheService.init();
-    translate.addLangs(['EN', 'TH']);
+    translate.addLangs(['en', 'th']);
 
     const browserLang = translateCacheService.getCachedLanguage() || translate.getBrowserLang();
-    translate.use(browserLang.match(/EN|TH/) ? browserLang : 'EN');
+    translate.use(browserLang.match(/en|th/) ? browserLang : 'en');
   }
 
 

@@ -91,11 +91,8 @@
                       </select> -->
                       <select #langSelect (change)="translate.use(langSelect.value)" class="form-control" >
                         <option value="" disabled>Language</option>
-                        <option
-                          *ngFor="let lang of translate.getLangs()"
-                          [value]="lang"
-                          [attr.selected]="lang === translate.currentLang ? '' : null"
-                        >{{lang}}</option>
+                        <option *ngFor="let lang of translate.getLangs()" 
+                        [value]="lang" [attr.selected]="lang === translate.currentLang ? '' : null">{{lang}}</option>
                       </select>
                     <!-- <a href="">Language</a> -->
                 </li>
