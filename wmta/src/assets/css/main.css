@@ -1,6 +1,13 @@
 /*------------------------------------------------------*/
 /* Common Styles for overall theme
 /*------------------------------------------------------*/
+.cardOriginal {
+  color: #212529 !important;;
+  background-color: #ffffff !important;
+  padding: 20px 10px 20px 10px;
+  margin-bottom: 2rem;
+}
+
 body {
   background: #f0f5f7;
 }
@@ -426,14 +433,16 @@ blockquote p {
 }
 #filters li:hover {
   padding-bottom: 0;
-  border-bottom: 2px solid #f15b5a;
+  border-bottom:2px solid #288a72;
+  /* border-bottom: 2px solid #f15b5a; */
 }
 #filters li:hover a {
   padding-bottom: 20px;
 }
 #filters li.active {
   padding-bottom: 0;
-  border-bottom: 2px solid #f15b5a;
+  border-bottom:2px solid #288a72;
+  /* border-bottom: 2px solid #f15b5a; */
 }
 #filters li.active a {
   padding-bottom: 20px;

@@ -36,25 +36,24 @@
         <nav class="main-menu">
             <ul class="header-nav clearfix" id="menu-main-menu">
                 <li class="page_item {{activeMenu('home')}}">
-                    <a id="home" href="/home" class="">{{'Home' | translate}}</a>
+                    <a href="/home" class="">{{'Home' | translate}}</a>
                 </li>
                 <li class="page_item {{activeMenu('concierge-service')}}">
-                    <a id="pa" href="/concierge-service/personal-assistant" class="">{{'All Concierge Services' | translate}}</a>
+                    <a href="/concierge-service/personal-assistant" class="">{{'All Concierge Services' | translate}}</a>
                 </li>
                 <li class="page_item {{activeMenu('Our Services')}}">
-                    <a id="os" class="">{{'Our Services' | translate}}</a>
+                    <a class="">{{'Our Services' | translate}}</a>
                     <ul>
                         <li><a href="/medical-treatment/">{{'Medical Treatment' | translate }}</a></li>
-                        <li><a href="/concierge-service/personal-assistant">{{'Elderly Care' | translate }}</a></li>
+                        <li><a href="/rehabilitation-center">{{'Rehabilitation Center' | translate}}</a></li>
+                        <li><a href="/wellness-retreat">{{'Wellness Retreat' | translate}}</a></li>
+                        <li><a href="https://www.wmtamedicaltourism.com/copy-of-we-care-elder-life" target="blank">{{'Elderly Care' | translate }}</a></li>
+                        <li><a href="/doctor">{{'Our Doctors' | translate}}</a></li>
                         <!-- <li><a href="/personal-assistant">{{'Personal Assistant & Appointment with Doctor' | translate }}</a></li> -->
                         <!-- <li><a href="">{{'Tourism Services' | translate}}</a></li>
                         <li><a href="">{{'Travel & Health Insurance Services' | translate}}</a></li>
                         <li><a href="">{{'Transportation Services' | translate}}</a></li>
                         <li><a href="">{{'Accommodation Services' | translate}}</a></li> -->
-                        <li><a href="/concierge-service/personal-assistant">{{'Rehabilitation Center' | translate}}</a></li>
-                        <li><a href="/concierge-service/personal-assistant">{{'Wellness Retreat' | translate}}</a></li>
-                        <!-- <li><a href="">{{'Elderly Care' | translate}}</a></li> -->
-                        <li><a href="/doctor">{{'Our Doctors' | translate}}</a></li>
                     </ul>
                 </li>
 
@@ -62,12 +61,12 @@
                     <a href="appointment.html">Appointment</a>
                 </li> -->
 
-                <li>
-                    <a id="mc" class="" href="/pages/media-csr">{{'Media & CSR' | translate}}</a>
+                <li class="page_item {{activeMenu('media-csr')}}">
+                    <a  href="/pages/media-csr">{{'Media & CSR' | translate}}</a>
                 </li>
 
-                <li>
-                    <a id="ct" class="" href="/pages/cart">{{'Cart' | translate}}</a>
+                <li class="page_item {{activeMenu('cart')}}">
+                    <a   href="/pages/cart">{{'Cart' | translate}}</a>
                     <!-- <ul>
                          <li><a href="product-detail.html">Product Detail</a></li>                         
                          <li><a href="cart.html">Cart</a></li>
@@ -75,12 +74,12 @@
                     </ul> -->
                 </li>
 
-                <li>
-                    <a>{{'Join Us' | translate}}</a>
+                <li class="page_item {{activeMenu('Join Us')}}">
+                    <a >{{'Join Us' | translate}}</a>
                     <ul>
                         <li><a href="/pages/about-us">{{'About Us' | translate}}</a></li>
                         <li><a href="/pages/contact-us">{{'Contact Us' | translate}}</a></li>
-                        <li><a href="/home">{{'For Business Partner Registration' | translate}}</a></li>
+                        <li><a href="/register-partner">{{'For Business Partner Registration' | translate}}</a></li>
                     </ul>
                 </li>
 

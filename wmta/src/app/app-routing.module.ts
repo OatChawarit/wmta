@@ -10,7 +10,10 @@ const routes: Routes = [
   { path: 'doctor', loadChildren: () => import('./doctors/doctors.module').then(m => m.DoctorsModule)},
   { path: 'concierge-service', loadChildren: () => import('./concierge-service/concierge-service.module').then(m => m.ConciergeServiceModule)},
   { path: 'medical-treatment', loadChildren: () => import('./medical-treatment/medical-treatment.module').then(m => m.MedicalTreatmentModule)},
-
+  { path: 'wellness-retreat', loadChildren: () => import('./wellness-retreat/wellness-retreat.module').then(m => m.WellnessRetreatModule)},
+  { path: 'rehabilitation-center', loadChildren: () => import('./rehabilitation-center/rehabilitation-center.module').then(m => m.RehabilitationCenterModule)},
+  { path: 'elderly-care', loadChildren: () => import('./elderly-care/elderly-care.module').then(m => m.ElderlyCareModule)},
+  { path: 'register-partner', loadChildren: () => import('./register-partner/register-partner.module').then(m => m.RegisterPartnerModule)},
 
   { path: 'login',component: LoginComponent},
 ];

@@ -21,25 +21,73 @@ export class HeaderComponent implements OnInit {
   }
   currentURL='';
   menu = [
-    {name: 'home',status:''},
-    {name: 'concierge-service',status:''},
-    {name: 'Our Services',status:''},
+    { name: 'home', status: '' },
+    { name: 'concierge-service', status: '' },
+    { name: 'Our Services', status: '' },
+    { name: 'medical-treatment', status: '' },
+    { name: 'elderly-care', status: '' },
+    { name: 'rehabilitation-center', status: '' },
+    { name: 'wellness-retreat', status: '' },
+    { name: 'doctor', status: '' },
+    { name: 'media-csr', status: '' },
+    { name: 'cart', status: '' },
+    { name: 'Join Us', status: '' },
+    { name: 'about-us', status: '' },
+    { name: 'contact-us', status: '' },
+    { name: 'register-partner', status: '' }
   ];
 
   ngOnInit(): void {
     this.onload();
+    let curURL : any = window.location.href;
+    console.log(curURL);
   }
 
   // คำสั่งสำหรับตอนโหลดครั้งแรกทั้งหมด
   onload():void {
     this.currentURL = window.location.href;
-    this.menu.forEach((item,i)=>{
-      let currents = this.currentURL.search(item.name);
-      if(currents>=0) this.menu[i].status='current-menu-item';
+    //console.log(this.currentURL);
+    this.menu.forEach((item,i)=> {
+      let currents : any = this.currentURL.match(item.name);
+      //console.log(currents);
+      if(currents == "" || currents==null){
+        this.menu[i].status=''
+      }
+      else if(currents[0] == "concierge-service"){
+        this.menu[i].status='current-menu-item'
+      } 
+      else if(currents[0] == "home"){
+        this.menu[i].status='current-menu-item'
+      }
+      else if(currents[0] == "medical-treatment" || currents[0] == "elderly-care" || currents[0] == "rehabilitation-center" || currents[0] == "wellness-retreat" || currents[0] == "doctor"){
+        let val ="Our Services";
+        var index = this.menu.findIndex(function(item, i){
+          return item.name === val
+        });
+        this.menu[index].status='current-menu-item'
+      }
+      else if(currents[0] == "media-csr"){
+        this.menu[i].status='current-menu-item'
+      }
+      else if(currents[0] == "cart"){
+        this.menu[i].status='current-menu-item'
+      }
+      else if(currents[0] == "about-us" || currents[0] == "contact-us" || currents[0] == "register-partner"){
+        let val ="Join Us";
+        var index = this.menu.findIndex(function(item, i){
+          return item.name === val
+        });
+        this.menu[index].status='current-menu-item'
+      }     
     });
   }
 
-
+    // Ex. P.dui
+    // this.menu.forEach((item,i)=>{
+    //   let currents = this.currentURL.search(item.name);
+    //   console.log(currents);
+    //   if(currents>=0) this.menu[i].status='current-menu-item';
+    // });
 
   /**
    * คำสั่ง ActiveMenu
