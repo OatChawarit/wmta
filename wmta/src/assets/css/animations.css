@@ -51,7 +51,10 @@
 	opacity: 1!important;
 }
 
-.fade { opacity: 0; }
+.fade { opacity: 1; }
+.fade:not(.show) {
+    opacity: 0;
+  }
 html.ie9 .fade { opacity: 1!important; }
 
 

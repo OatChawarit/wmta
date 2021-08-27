@@ -3,16 +3,18 @@
     <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="row">
             <div class="col-md-5 ">
-     
+                <p><span>{{'Call us' | translate}} </span><a href="tel:+66945149294" style="color: #00e6ac;">+66 945149294</a></p>
             </div>
             <!--opening hours-->
             <div class="col-md-7 text-right">
-                <p>
+                <div >
                     <!-- <a href="home/login" class="text-forgot"> ลงชื่อเข้าใช้ </a> -->
                     <!-- <a href="home/forgetpassword"><b class="text-forgot">ลืมรหัสผ่าน</b></a> -->
-                    <a href="home/login"><span>&nbsp; testname lastname &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
-                    <a href="javascript:void(0);"><b class="text-forgot">{{'Logout' | translate}}</b></a>
-                </p>
+                    <a href="pages/profile" title="Profile">
+                        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="img-circle avatar-user"
+                        alt="avatar"><span style="color: white;">&nbsp; testname lastname &nbsp;</span></a>
+                    <a href="javascript:(0)" (click)="onlogOut()" title="Logout"><b class="text-forgot">{{'Logout' | translate}}</b></a>
+                </div>
 
             </div>
 

@@ -15,6 +15,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { MainComponent } from './home/main/main.component';
 import { I18nModule } from './i18n/i18n.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { I18nModule } from './i18n/i18n.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    BrowserModule,
+    CommonModule,
     I18nModule
   ],
   providers: [],

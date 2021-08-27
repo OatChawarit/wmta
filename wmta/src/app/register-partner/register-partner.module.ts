@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIfContext } from '@angular/common';
 
 import { RegisterPartnerRoutingModule } from './register-partner-routing.module';
 import { ListComponent } from './list/list.component';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -11,6 +11,7 @@ import { ListComponent } from './list/list.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     RegisterPartnerRoutingModule
   ]
 })

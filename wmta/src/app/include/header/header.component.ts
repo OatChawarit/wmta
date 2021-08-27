@@ -4,6 +4,8 @@ import { AppComponent } from 'src/app/app.component';
 import { AuthService } from 'src/app/home/login/service/auth.service';
 import { ActivatedRoute,Router,Routes  } from '@angular/router';
 
+import Swal from 'sweetalert2'
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -40,7 +42,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.onload();
     let curURL : any = window.location.href;
-    console.log(curURL);
+    //console.log(curURL);
   }
 
   // คำสั่งสำหรับตอนโหลดครั้งแรกทั้งหมด
@@ -102,6 +104,28 @@ export class HeaderComponent implements OnInit {
       console.warn(`Can't find ${str} menu item`);
       return '';
     }
+  }
+
+  onlogOut(){
+    Swal.fire({ //alert confirm แบบ sweetalert
+      title: 'Confirm Log out ?',
+      // text: 'ออกจากระบบ ใช่หรือไม่ ?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'OK',
+      cancelButtonText: 'Cencel',
+    }).then((val) => {
+
+      if (val.value) {  
+        this.router.navigate(['/home'])
+        .then(() => {
+          window.location.reload();
+        });
+      }
+
+    });
   }
 
 }

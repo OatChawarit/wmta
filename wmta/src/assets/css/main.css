@@ -8,6 +8,15 @@
   margin-bottom: 2rem;
 }
 
+.profile-heading {
+  background: #288a72;
+  color: #fff;
+  border-radius: 4px 4px 0 0;
+  -webkit-border-radius: 4px 4px 0 0;
+  padding: 30px;
+  text-align: center;
+}
+
 body {
   background: #f0f5f7;
 }
@@ -3220,7 +3229,7 @@ table {
   color: #3a3c41;
 }
 table thead {
-  background-color: #66c9e0;
+  background-color: #288a72;
   border: 0;
   font-weight: 700;
   color: #3a3c41;
