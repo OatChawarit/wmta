@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  API_URL : "https://api.logo-design360.com/wmta-api/public/api/",
+  Api_Url : "https://api.logo-design360.com/wmta-api/public/api/",
 };
 
 

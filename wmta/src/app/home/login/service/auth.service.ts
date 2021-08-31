@@ -2,14 +2,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
-import { environment } from '../../../../environments/environment';
+
 import { catchError, map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 import Swal from 'sweetalert2';
+import { environment } from '../../../../environments/environment';
 
 const helper = new JwtHelperService();
-const AUTH_API = environment.API_URL;
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' })
@@ -27,7 +27,7 @@ export class AuthService {
   } 
 
   login(email: string, password: string): Observable<any> {
-    return this.http.post(AUTH_API + 'login', {
+    return this.http.post(environment.Api_Url + 'login', {
       email,
       password
     }, httpOptions);
