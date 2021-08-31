@@ -27,7 +27,7 @@ export class AuthService {
   } 
 
   login(email: string, password: string): Observable<any> {
-    return this.http.post(environment.Api_Url + 'login', {
+    return this.http.post('https://api.logo-design360.com/wmta-api/public/api/login', {
       email,
       password
     }, httpOptions);
