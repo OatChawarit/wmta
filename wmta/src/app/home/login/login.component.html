@@ -1,7 +1,7 @@
 <div class="main-login">
     <div class="container" id="container">
         <div class="form-container sign-in-container">
-            <form action="#">
+            <form [formGroup]="formLogin"  (ngSubmit)="onSubmit()">
                 <div class="row mx-auto">
                     <h1>Sign in</h1>
                     <!-- <div class="social-container">
@@ -12,12 +12,12 @@
                     <p>Use your account</p>
                 </div>
                 <div class="row mx-auto">
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
+                    <input type="email" placeholder="Email"  formControlName="email"  required  />
+                    <input type="password" placeholder="Password" formControlName="password" required minlength="6" />
                 </div>
 
                 <div class="row mx-auto">
-                    <div class="col-lg-6" style="margin-bottom: 5px;"><button type="button" class="btn btn-success btnLogin">Sign In</button></div>
+                    <div class="col-lg-6" style="margin-bottom: 5px;"><button type="submit" class="btn btn-success btnLogin">Sign In</button></div>
                     <div class="col-lg-6"><button type="button" class="btn btn-primary btnLogin" title="Create an account">Sign Up</button></div>
                 </div>
                 <br />

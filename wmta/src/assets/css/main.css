@@ -4392,6 +4392,15 @@ table tbody tr {
   color: #f15b5a;
 }
 
+.text-signup {
+  /* background: #06a6d6; */
+  float: right;
+  font-weight: 1000;
+  font-size: 16px;
+  color: #06a6d6;
+}
+
+
 
 .w-25{width:25%!important}
 .w-50{width:50%!important}

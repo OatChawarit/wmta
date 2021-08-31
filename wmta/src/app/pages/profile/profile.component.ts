@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../home/login/service/auth.service';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -66,8 +67,11 @@ export class ProfileComponent implements OnInit {
   ];
 
   imageSrc: any;
-
-  constructor(private router: Router) { }
+  userData : any;
+  constructor(private router: Router, private authService: AuthService) {
+    this.userData = JSON.parse(localStorage.getItem('user') || '0');
+    this.imageSrc = "https://api.logo-design360.com/wmta-api/public" + this.userData.data.image;
+  }
 
   ngOnInit(): void {
     this.changeMenu('User Management');
@@ -127,10 +131,11 @@ export class ProfileComponent implements OnInit {
     }).then((val) => {
 
       if (val.value) {
-        this.router.navigate(['/login'])
-          .then(() => {
-            window.location.reload();
-          });
+        this.authService.logout();
+        // this.router.navigate(['/login'])
+        //   .then(() => {
+        //     window.location.reload();
+        //   });
       }
 
     });

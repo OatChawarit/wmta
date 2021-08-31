@@ -2,46 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AppComponent } from 'src/app/app.component';
 import { AuthService } from 'src/app/home/login/service/auth.service';
-import { ActivatedRoute, Router, Routes } from '@angular/router';
+import { ActivatedRoute,Router,Routes  } from '@angular/router';
 
 import Swal from 'sweetalert2'
+const users = JSON.parse(localStorage.getItem('user') || '0');
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit { 
 
   userData: any;
-  constructor(private route: ActivatedRoute, private router: Router, public translate: TranslateService) {
-
-    this.userData = {
-      data : {
-        "id": 1,
-        "user_id": "000000001",
-        "fname": "ชือ",
-        "lname": "นามสกุล",
-        "age": 20,
-        "sex": "M",
-        "type": "0",
-        "phone": "0999999999",
-        "line": "@idline",
-        "email": "member@gmail.com",
-        "image": "/images/users/b79387845c1b782bc9964742f20f19a0.png",
-        "create_by": null,
-        "update_by": null,
-        "status": "Y",
-        "created_at": "2021-08-27T09:04:41.000000Z",
-        "updated_at": "2021-08-27T09:04:41.000000Z",
-        "deleted_at": null
-      },
-      token : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ3bXRhIiwiYXVkIjoxLCJsdW4iOnsiaWQiOjEsInVzZXJfaWQiOiIwMDAwMDAwMDEiLCJmbmFtZSI6Ilx1MGUwYVx1MGUzN1x1MGUyZCIsImxuYW1lIjoiXHUwZTE5XHUwZTMyXHUwZTIxXHUwZTJhXHUwZTAxXHUwZTM4XHUwZTI1IiwiYWdlIjoyMCwic2V4IjoiTSIsInR5cGUiOiIwIiwicGhvbmUiOiIwOTk5OTk5OTk5IiwibGluZSI6IkBpZGxpbmUiLCJlbWFpbCI6Im1lbWJlckBnbWFpbC5jb20iLCJpbWFnZSI6IlwvaW1hZ2VzXC91c2Vyc1wvYjc5Mzg3ODQ1YzFiNzgyYmM5OTY0NzQyZjIwZjE5YTAucG5nIiwiY3JlYXRlX2J5IjpudWxsLCJ1cGRhdGVfYnkiOm51bGwsInN0YXR1cyI6IlkiLCJjcmVhdGVkX2F0IjoiMjAyMS0wOC0yN1QwOTowNDo0MS4wMDAwMDBaIiwidXBkYXRlZF9hdCI6IjIwMjEtMDgtMjdUMDk6MDQ6NDEuMDAwMDAwWiIsImRlbGV0ZWRfYXQiOm51bGx9LCJpYXQiOjE2MzAzODIyNjMsImV4cCI6MTYzMDQ2ODY2MywibmJmIjoxNjMwMzgyMjYzfQ.tCBQsHoKXO8VySBzVVyu88YkdxptxYZQMzTNDzmfWJc"
-    };
-
+  constructor(private route : ActivatedRoute, private router : Router, public translate: TranslateService, private authService: AuthService) {
+    this.userData = users;
   }
 
-  currentURL = '';
+  currentURL='';
   menu = [
     { name: 'home', status: '' },
     { name: 'concierge-service', status: '' },
@@ -61,72 +39,72 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.onload();
-    let curURL: any = window.location.href;
-    //console.log(curURL);
+    let curURL : any = window.location.href;
+    //console.log(this.userData);
   }
 
   // คำสั่งสำหรับตอนโหลดครั้งแรกทั้งหมด
-  onload(): void {
+  onload():void {
     this.currentURL = window.location.href;
     //console.log(this.currentURL);
-    this.menu.forEach((item, i) => {
-      let currents: any = this.currentURL.match(item.name);
+    this.menu.forEach((item,i)=> {
+      let currents : any = this.currentURL.match(item.name);
       //console.log(currents);
-      if (currents == "" || currents == null) {
-        this.menu[i].status = ''
+      if(currents == "" || currents==null){
+        this.menu[i].status=''
       }
-      else if (currents[0] == "concierge-service") {
-        this.menu[i].status = 'current-menu-item'
+      else if(currents[0] == "concierge-service"){
+        this.menu[i].status='current-menu-item'
+      } 
+      else if(currents[0] == "home"){
+        this.menu[i].status='current-menu-item'
       }
-      else if (currents[0] == "home") {
-        this.menu[i].status = 'current-menu-item'
-      }
-      else if (currents[0] == "medical-treatment" || currents[0] == "elderly-care" || currents[0] == "rehabilitation-center" || currents[0] == "wellness-retreat" || currents[0] == "doctor") {
-        let val = "Our Services";
-        var index = this.menu.findIndex(function (item, i) {
+      else if(currents[0] == "medical-treatment" || currents[0] == "elderly-care" || currents[0] == "rehabilitation-center" || currents[0] == "wellness-retreat" || currents[0] == "doctor"){
+        let val ="Our Services";
+        var index = this.menu.findIndex(function(item, i){
           return item.name === val
         });
-        this.menu[index].status = 'current-menu-item'
+        this.menu[index].status='current-menu-item'
       }
-      else if (currents[0] == "media-csr") {
-        this.menu[i].status = 'current-menu-item'
+      else if(currents[0] == "media-csr"){
+        this.menu[i].status='current-menu-item'
       }
-      else if (currents[0] == "cart") {
-        this.menu[i].status = 'current-menu-item'
+      else if(currents[0] == "cart"){
+        this.menu[i].status='current-menu-item'
       }
-      else if (currents[0] == "about-us" || currents[0] == "contact-us" || currents[0] == "register-partner") {
-        let val = "Join Us";
-        var index = this.menu.findIndex(function (item, i) {
+      else if(currents[0] == "about-us" || currents[0] == "contact-us" || currents[0] == "register-partner"){
+        let val ="Join Us";
+        var index = this.menu.findIndex(function(item, i){
           return item.name === val
         });
-        this.menu[index].status = 'current-menu-item'
-      }
+        this.menu[index].status='current-menu-item'
+      }     
     });
   }
 
-  // Ex. P.dui
-  // this.menu.forEach((item,i)=>{
-  //   let currents = this.currentURL.search(item.name);
-  //   console.log(currents);
-  //   if(currents>=0) this.menu[i].status='current-menu-item';
-  // });
+    // Ex. P.dui
+    // this.menu.forEach((item,i)=>{
+    //   let currents = this.currentURL.search(item.name);
+    //   console.log(currents);
+    //   if(currents>=0) this.menu[i].status='current-menu-item';
+    // });
 
   /**
    * คำสั่ง ActiveMenu
    * @param str ชื่อเมนูกำหนดให้ตรงกับ ตัวแปล Menu
    * @returns ระบบจะ return menu.status ให้ ถ้าเจอ ถ้าไม่เจอจะส่งค่าว่างกลับ  
    */
-  activeMenu(str: string) {
-    let result: any = this.menu.filter(item => item.name == str)
-    if (result.length > 0) {
+  activeMenu(str:string) {
+    let result :any =  this.menu.filter(item=> item.name == str)
+    if(result.length > 0) {
       return result[0].status;
-    } else {
+    }else{
       console.warn(`Can't find ${str} menu item`);
       return '';
     }
   }
 
-  signOut() {
+  signOut(){
     Swal.fire({ //alert confirm แบบ sweetalert
       title: 'Confirm Log out ?',
       // text: 'ออกจากระบบ ใช่หรือไม่ ?',
@@ -138,11 +116,12 @@ export class HeaderComponent implements OnInit {
       cancelButtonText: 'Cencel',
     }).then((val) => {
 
-      if (val.value) {
-        this.router.navigate(['/login'])
-          .then(() => {
-            window.location.reload();
-          });
+      if (val.value) {  
+        this.authService.logout();
+        // this.router.navigate(['/login'])
+        // .then(() => {
+        //   window.location.reload();
+        // });
       }
 
     });

@@ -16,7 +16,7 @@
 
             <div class="panel panel-wmta">
                 <div class="panel-heading"><strong>Your Mail</strong></div>
-                <div class="panel-body"><strong>test001@gmail.com</strong></div>
+                <div class="panel-body"><strong>{{userData.data.email}}</strong></div>
             </div>
 
             <div class="list-group" id="list-tab" role="tablist">
@@ -42,7 +42,7 @@
                                 <label for="first_name">
                                     <h5>First name</h5>
                                 </label>
-                                <input type="text" class="form-control" name="first_name" id="first_name"
+                                <input type="text" class="form-control" name="first_name" id="first_name" value="{{userData.data.fname}}"
                                     placeholder="first name" title="enter your first name if any.">
                             </div>
 
@@ -50,7 +50,7 @@
                                 <label for="last_name">
                                     <h5>Last name</h5>
                                 </label>
-                                <input type="text" class="form-control" name="last_name" id="last_name"
+                                <input type="text" class="form-control" name="last_name" id="last_name" value="{{userData.data.lname}}"
                                     placeholder="last name" title="enter your last name if any.">
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                                 <label for="phone">
                                     <h5>Phone</h5>
                                 </label>
-                                <input type="text" class="form-control" name="phone" id="phone"
+                                <input type="text" class="form-control" name="phone" id="phone" value="{{userData.data.phone}}"
                                     placeholder="enter phone" title="enter your phone number if any.">
                             </div>
 
@@ -70,7 +70,7 @@
                                 <label for="email">
                                     <h5>Email</h5>
                                 </label>
-                                <input type="email" class="form-control" name="email" id="email"
+                                <input type="email" class="form-control" name="email" id="email"  value="{{userData.data.email}}"
                                     placeholder="you@email.com" title="enter your email.">
                             </div>
                         </div>
