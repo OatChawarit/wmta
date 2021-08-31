@@ -20,14 +20,14 @@
             </div>
 
             <div class="list-group" id="list-tab" role="tablist">
-                <a class="list-group-item list-group-item-action {{activeMenu('User Management')}}" id="user-management"
+                <a href="javascript:(0)" class="list-group-item list-group-item-action {{activeMenu('User Management')}}" id="user-management"
                     (click)="changeMenu('User Management')"><strong>User Management</strong></a>
-                <a class="list-group-item list-group-item-action {{activeMenu('Package History')}}" id="list-packet"
+                <a href="javascript:(0)" class="list-group-item list-group-item-action {{activeMenu('Package History')}}" id="list-packet"
                     (click)="changeMenu('Package History')"><strong>Package History</strong></a>
-                <a class="list-group-item list-group-item-action {{activeMenu('Re-Password')}}" id="re-password"
+                <a href="javascript:(0)" class="list-group-item list-group-item-action {{activeMenu('Re-Password')}}" id="re-password"
                     (click)="changeMenu('Re-Password')"><strong>Re-Password</strong></a>
-                <a class="list-group-item list-group-item-action {{activeMenu('Logout')}}" id="logout"
-                    (click)="onlogOut()"><strong>Logout</strong></a>
+                <a href="javascript:(0)" class="list-group-item list-group-item-action {{activeMenu('Logout')}}" id="logout"
+                    (click)="onlogOut()" style="background-color: #3a3c41; color:#fff;"><strong>Logout</strong></a>
             </div>
         </div>
 

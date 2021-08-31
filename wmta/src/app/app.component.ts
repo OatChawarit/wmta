@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 
@@ -8,16 +9,33 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'wmta';
 
-  constructor(public translate: TranslateService) {
+  opened = false;
+  IsLogin = false;
+
+  constructor(public translate: TranslateService, private router: Router) {
     // transLate.addLangs(['en', 'th']); 
     // transLate.setDefaultLang('en'); 
     // transLate.use('en');
-   }
-  
-   switchLang(lang: string) {
+    this.router.events.forEach((event) => {
+      if (event instanceof NavigationStart) {
+        if (event.url === '/login') {
+          this.IsLogin = false;
+        } else {
+          this.IsLogin = true;
+        }
+      }
+    });
+
+  }
+
+  ngOnInit(): void {
+
+  }
+
+  switchLang(lang: string) {
     this.translate.use(lang);
     //this.changeLange();
   }

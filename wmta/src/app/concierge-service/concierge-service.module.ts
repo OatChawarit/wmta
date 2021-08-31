@@ -6,6 +6,7 @@ import { PersonalAssistantComponent } from './personal-assistant/personal-assist
 import { EnquiryFormComponent } from './enquiry-form/enquiry-form.component';
 
 import { I18nModule } from '../i18n/i18n.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { I18nModule } from '../i18n/i18n.module';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     ConciergeServiceRoutingModule,
     I18nModule
   ]

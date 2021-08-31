@@ -127,7 +127,7 @@ export class ProfileComponent implements OnInit {
     }).then((val) => {
 
       if (val.value) {
-        this.router.navigate(['/home'])
+        this.router.navigate(['/login'])
           .then(() => {
             window.location.reload();
           });

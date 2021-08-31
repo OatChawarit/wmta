@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
 import { I18nModule } from '../i18n/i18n.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { I18nModule } from '../i18n/i18n.module';
   imports: [
     CommonModule,
     IncludeRoutingModule,
+    ReactiveFormsModule,
     I18nModule
   ]
 })

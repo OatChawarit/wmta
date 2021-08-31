@@ -1,12 +1,12 @@
 
 .img-profile{
-    height: 175px; 
+    height: 180px; 
     width: 200px;
 }
 
 @media (max-width: 768px) {
     .img-profile{
-        height: 125px; 
+        height: 130px; 
         width: 150px;
     }    
 }

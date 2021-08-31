@@ -4,3 +4,26 @@
     width: 25px;
     height: 25px;
 }
+
+
+.dropdown-menu {
+    left: 75% !important; 
+    top: 120% !important; 
+    padding: 10px 0px !important;
+}
+
+@media (max-width: 767px)  {
+    .dropdown-menu {
+        left: 55% !important; 
+        top: 120% !important; 
+        padding: 10px 0px !important;
+    }
+}
+
+
+.hr-menu {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    border-top: 1px solid #eeeeee;
+}

@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'elderly-care', loadChildren: () => import('./elderly-care/elderly-care.module').then(m => m.ElderlyCareModule)},
   { path: 'register-partner', loadChildren: () => import('./register-partner/register-partner.module').then(m => m.RegisterPartnerModule)},
 
-  { path: 'login',component: LoginComponent},
+  { path: 'login', component: LoginComponent},
 ];
 
 @NgModule({

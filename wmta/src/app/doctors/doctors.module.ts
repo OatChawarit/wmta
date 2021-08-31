@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DoctorsRoutingModule } from './doctors-routing.module';
 import { ListComponent } from './list/list.component';
 import { I18nModule } from '../i18n/i18n.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { I18nModule } from '../i18n/i18n.module';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     DoctorsRoutingModule,
     I18nModule
   ]
