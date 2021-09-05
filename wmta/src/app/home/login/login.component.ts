@@ -13,16 +13,19 @@ declare var jQuery: any;
 })
 export class LoginComponent implements OnInit {
 
-  formLogin: FormGroup;
+  LoginForm: FormGroup;
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 
   constructor(private router: Router, private http: HttpClient, private fb: FormBuilder,
     private authService: AuthService) {
-    this.formLogin = this.fb.group({
-      email: [''],
-      password: [''],
+    this.LoginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required, Validators.minLength(6)],
     })
   }
+
+  get password(): any { return this.LoginForm.get('password'); }
+  get email(): any { return this.LoginForm.get('email'); }
 
   ngOnInit(): void {
 
@@ -30,19 +33,22 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
 
-    this.formLogin.patchValue({
-      email: this.formLogin.value.email,
-      password: this.formLogin.value.password,
+    this.LoginForm.patchValue({
+      email: this.LoginForm.value.email,
+      password: this.LoginForm.value.password,
     });
 
-    console.log(this.formLogin.value);
-    this.authService.login(this.formLogin.value.email, this.formLogin.value.password).subscribe((res) => {
+    console.log(this.LoginForm.value);
+    this.authService.login(this.LoginForm.value.email, this.LoginForm.value.password).subscribe((res) => {
       //console.log(res);
       if (res.status == "false") {
         console.log(res);
       } else {
-        console.log(res);
+        //console.log(res);
         this.authService.saveLocalStorage(res);
+        this.router.navigate(['/home']).then(() => {
+          window.location.reload();
+        });
       }
     })
   }

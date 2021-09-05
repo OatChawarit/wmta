@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../home/login/service/auth.service';
 import Swal from 'sweetalert2'
+
+declare const $: any;
+declare const M: any;
 
 @Component({
   selector: 'app-profile',
@@ -18,6 +21,7 @@ export class ProfileComponent implements OnInit {
     { name: 'Re-Password', status: '', action: '' },
     { name: 'Logout', status: '', action: '' },
   ];
+  
   renderer: any;
   ActionShow: any;
 
@@ -68,13 +72,115 @@ export class ProfileComponent implements OnInit {
 
   imageSrc: any;
   userData : any;
-  constructor(private router: Router, private authService: AuthService) {
+  profileData : FormGroup;
+
+  constructor(private router: Router, private authService: AuthService, private fb : FormBuilder) {
     this.userData = JSON.parse(localStorage.getItem('user') || '0');
     this.imageSrc = "https://api.logo-design360.com/wmta-api/public" + this.userData.data.image;
+
+    this.profileData = this.fb.group({
+      email: ["", Validators.email],
+      //password: ["", Validators.required],
+      id: "",
+      user_id: "",
+      fname: "",
+      lname: "",
+      age: "",
+      sex: "",
+      type: "",
+      phone: "",
+      line: "",
+      image: "",
+      files: [''],
+    });
   }
 
   ngOnInit(): void {
     this.changeMenu('User Management');
+    this.profileData.patchValue({
+      email: this.userData.data.email,
+      // password: this.userData.data.password,
+      id: this.userData.data.id,
+      user_id: this.userData.data.user_id,
+      fname: this.userData.data.fname,
+      lname: this.userData.data.lname,
+      age: this.userData.data.age,
+      sex: this.userData.data.sex,
+      type: this.userData.data.type,
+      phone: this.userData.data.phone,
+      line: this.userData.data.line,
+      image: this.userData.data.image,
+      files: [''],
+    });
+  }
+
+  onSave(form : FormGroup){
+    console.log(form.value);
+  }
+  
+  signOut() {
+    Swal.fire({ //alert confirm แบบ sweetalert
+      title: 'Confirm Log out ?',
+      // text: 'ออกจากระบบ ใช่หรือไม่ ?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'OK',
+      cancelButtonText: 'Cencel',
+    }).then((val) => {
+
+      if (val.value) {
+        this.authService.logout();
+        // this.router.navigate(['/login'])
+        //   .then(() => {
+        //     window.location.reload();
+        //   });
+      }
+
+    });
+  }
+
+  onDetail(row :any){
+    console.log(row)
+  }
+
+  readFileImg(event: any): void {
+    if (event.target.files && event.target.files[0]) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.onload = e => this.imageSrc = reader.result;
+        reader.readAsDataURL(file);
+    }
+  }
+
+  uploadBtn() : void {
+    //console.log("click");
+    $(".file-upload").click();
+  }
+
+  selectStar(value : any): void {
+    // prevent multiple selection
+    if (this.selectedRating === 0) {
+      this.stars.filter((star) => {
+        if (star.id <= value) {
+          star.class = 'star-gold star';
+        } else {
+          star.class = 'star-gray star';
+        }
+        return star;
+      });
+    }else{
+      this.stars.filter((star) => {
+        if (star.id <= value) {
+          star.class = 'star-gold star-hover star';
+        } else {
+          star.class = 'star-gray star-hover star';
+        }
+        return star;
+      });
+    }
+    this.selectedRating = value;
   }
 
   changeMenu(tabname: any) {
@@ -118,64 +224,5 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  onlogOut() {
-    Swal.fire({ //alert confirm แบบ sweetalert
-      title: 'Confirm Log out ?',
-      // text: 'ออกจากระบบ ใช่หรือไม่ ?',
-      icon: 'question',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'OK',
-      cancelButtonText: 'Cencel',
-    }).then((val) => {
-
-      if (val.value) {
-        this.authService.logout();
-        // this.router.navigate(['/login'])
-        //   .then(() => {
-        //     window.location.reload();
-        //   });
-      }
-
-    });
-  }
-
-  onDetail(row :any){
-    console.log(row)
-  }
-
-  readFileImg(event: any): void {
-    if (event.target.files && event.target.files[0]) {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-        reader.onload = e => this.imageSrc = reader.result;
-        reader.readAsDataURL(file);
-    }
-  }
-
-  selectStar(value : any): void {
-    // prevent multiple selection
-    if (this.selectedRating === 0) {
-      this.stars.filter((star) => {
-        if (star.id <= value) {
-          star.class = 'star-gold star';
-        } else {
-          star.class = 'star-gray star';
-        }
-        return star;
-      });
-    }else{
-      this.stars.filter((star) => {
-        if (star.id <= value) {
-          star.class = 'star-gold star-hover star';
-        } else {
-          star.class = 'star-gray star-hover star';
-        }
-        return star;
-      });
-    }
-    this.selectedRating = value;
-  }
 
 }

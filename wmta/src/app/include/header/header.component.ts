@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { AppComponent } from 'src/app/app.component';
 import { AuthService } from 'src/app/home/login/service/auth.service';
@@ -15,6 +16,8 @@ const users = JSON.parse(localStorage.getItem('user') || '0');
 export class HeaderComponent implements OnInit { 
 
   userData: any;
+  imageSrc: any;
+ 
   constructor(private route : ActivatedRoute, private router : Router, public translate: TranslateService, private authService: AuthService) {
     this.userData = users;
   }
@@ -41,6 +44,12 @@ export class HeaderComponent implements OnInit {
     this.onload();
     let curURL : any = window.location.href;
     //console.log(this.userData);
+
+    if(this.userData =="0"){
+      this.imageSrc = 'assets/images/user_icon.png';
+    }else{
+      this.imageSrc = "https://api.logo-design360.com/wmta-api/public" + this.userData.data.image;
+    }
   }
 
   // คำสั่งสำหรับตอนโหลดครั้งแรกทั้งหมด

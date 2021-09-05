@@ -14,13 +14,13 @@
                         <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="img-circle avatar-user" alt="avatar" />
                         <span style="color: white;">&nbsp; testname lastname &nbsp;</span></a> -->
                         <div *ngIf="userData==''">
-                            <a href="home/login" class="text-signup mx-2"><b>{{'Sign Up' | translate}}</b></a>
+                            <a href="home/register" class="text-signup mx-2"><b>{{'Sign Up' | translate}}</b></a>
                             <a href="home/login" class="text-forgot"><b>{{'Sign In' | translate}}</b></a>
                         </div>
 
                         <div role="group" *ngIf="userData !=''">
                             <a href="javascript:(0)" id="btnGroupDrop1" type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="https://api.logo-design360.com/wmta-api/public{{userData.data.image}}" class="img-circle avatar-user" alt="avatar" />
+                                <img [src]="imageSrc" class="img-circle avatar-user" alt="avatar" />
                                 <span style="color: white;">&nbsp;&nbsp;{{userData.data.fname}} {{userData.data.lname}} &nbsp;&nbsp;<i class="fa fa-caret-down"></i></span>
                             </a>
                             <div class="dropdown-menu text-left" aria-labelledby="btnGroupDrop1">
