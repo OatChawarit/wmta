@@ -89,15 +89,14 @@
 
 
 <!-- about-us -->
-<br />
-<div class="container isotope-wrapper text-center">
+<!--<br />
+ <div class="container isotope-wrapper text-center"> เรียงรูปโชว์ 8 รูป 
     <div class="row">
         <div id="isotope-container" class="clearfix">
-            <!--column start-->
+  
             <div class="isotope-item advanced-technology free-facilities col-md-3 col-sm-3 ">
                 <article class="common clearfix hentry">
                     <figure class="overlay-effect">
-                        <!-- <a href="assets/images/temp-images/gallery-11.jpg" title="Healthcare Resources"></a> -->
                         <a >
                             <img src="assets/images/temp-images/gallery-11.jpg" alt="gallery-1" />
                         </a>
@@ -105,9 +104,7 @@
                     </figure>
                 </article>
             </div>
-            <!--column end-->
 
-            <!--column start-->
             <div class="isotope-item advanced-technology free-facilities col-md-3 col-sm-3 ">
                 <article class="common clearfix hentry">
                     <figure class="overlay-effect">
@@ -118,9 +115,7 @@
                     </figure>
                 </article>
             </div>
-            <!--column end-->
 
-            <!--column start-->
             <div class="isotope-item advanced-technology free-facilities col-md-3 col-sm-3 ">
                 <article class="common clearfix hentry">
                     <figure class="overlay-effect">
@@ -131,9 +126,7 @@
                     </figure>
                 </article>
             </div>
-            <!--column end-->
 
-            <!--column start-->
             <div class="isotope-item advanced-technology free-facilities col-md-3 col-sm-3 ">
                 <article class="common clearfix hentry">
                     <figure class="overlay-effect">
@@ -144,16 +137,16 @@
                     </figure>
                 </article>
             </div>
-            <!--column end-->
 
         </div>
     </div>
 </div>
 <br />
+
 <div class="container isotope-wrapper text-center">
     <div class="row">
         <div id="isotope-container" class="clearfix">
-            <!--column start-->
+         
             <div class="isotope-item advanced-technology free-facilities col-md-3 col-sm-3 ">
                 <article class="common clearfix hentry">
                     <figure class="overlay-effect">
@@ -164,9 +157,7 @@
                     </figure>
                 </article>
             </div>
-            <!--column end-->
 
-            <!--column start-->
             <div class="isotope-item advanced-technology free-facilities col-md-3 col-sm-3 ">
                 <article class="common clearfix hentry">
                     <figure class="overlay-effect">
@@ -177,9 +168,7 @@
                     </figure>
                 </article>
             </div>
-            <!--column end-->
 
-            <!--column start-->
             <div class="isotope-item advanced-technology free-facilities col-md-3 col-sm-3 ">
                 <article class="common clearfix hentry">
                     <figure class="overlay-effect">
@@ -190,9 +179,7 @@
                     </figure>
                 </article>
             </div>
-            <!--column end-->
 
-            <!--column start-->
             <div class="isotope-item advanced-technology free-facilities col-md-3 col-sm-3 ">
                 <article class="common clearfix hentry">
                     <figure class="overlay-effect">
@@ -203,12 +190,11 @@
                     </figure>
                 </article>
             </div>
-            <!--column end-->
 
         </div>
     </div>
 </div>
-<br />
+<br /> -->
 
 
 <div class="home-features clearfix">
@@ -242,6 +228,44 @@
     </div>
 </div>
 <!-- about-us -->
+
+
+<!--news section-->
+<div class="services-page clearfix">
+    <div class="container">
+        <div class="container text-center">
+            <h2>Health News</h2>
+            <hr />
+        </div>
+        <div class="row ">
+           
+            <div class="col-md-4 col-sm-6" *ngFor="let item of arrData">
+                <article class="service type-service hentry three-col-service">
+                    <figure>
+                        <a href="/health-blog/{{ item.id }}" title="{{ item.id }}">
+                            <img src="https://api.logo-design360.com/wmta-api/public/{{ item.image }}" alt="{{ item.title }}" />
+                        </a>
+                    </figure>
+                    <div class="contents clearfix">
+                        <h4><a href="/health-blog/{{ item.id }}">{{ item.title }}</a></h4>
+                        <div class="entry-content">
+                            <p>{{ item.shot_detail }}&hellip;</p>
+                        </div>
+                        <a class="read-more" href="/health-blog/{{ item.id }}">Read More</a>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-12 text-center">
+              <a class="read-more" href="/health-blog">View all health news</a>
+            </div>
+          </div>
+    </div>
+</div>
+<!--news section end-->
 
 
 <div class="features-var-two clearfix">

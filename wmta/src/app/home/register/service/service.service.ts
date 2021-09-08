@@ -9,6 +9,7 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
 
+import Swal from 'sweetalert2';
 import { catchError, map } from 'rxjs/operators';
 
 const httpOptions = {
@@ -24,8 +25,8 @@ export class ServiceService {
 
   new(register: FormData): Observable<Register> {
     return this.http
-      .post<Register>('https://api.logo-design360.com/wmta-api/public/api/register', register)
-      .pipe();
+      .post<Register>('https://api.logo-design360.com/wmta-api/public/api/register', register, httpOptions)
+      .pipe(catchError((err) => this.handlerError(err)));
   }
 
   addAccount(register: FormData): Observable<dataResponse> {
@@ -39,9 +40,14 @@ export class ServiceService {
   handlerError(error : any): Observable<never> {
     let errorMessage = 'Error unknown';
     if (error) {
-      errorMessage = `Error ${error.message}`;
+      errorMessage = `Error ${error.error}`;
     }
-    window.alert(errorMessage);
+    Swal.fire(
+      "Warning!", //title
+      ''+ errorMessage, //main text
+      "error" //icon
+    );
+    // window.alert(errorMessage);
     return throwError(errorMessage);
   }
 

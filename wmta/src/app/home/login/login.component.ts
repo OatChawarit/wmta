@@ -5,7 +5,9 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
 import { AuthService } from './service/auth.service';
 
-declare var jQuery: any;
+declare var $: any;
+declare var document: any;
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -32,25 +34,34 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-
-    this.LoginForm.patchValue({
-      email: this.LoginForm.value.email,
-      password: this.LoginForm.value.password,
+    // this.LoginForm.patchValue({
+    //   email: this.LoginForm.value.email,
+    //   password: this.LoginForm.value.password,
+    // });
+    Swal.fire({
+      title: 'Please Wait !',
+      html: 'Loading data...',// add html attribute if you want or remove
+      allowOutsideClick: false,
+      didOpen : () => {
+          Swal.showLoading()
+      },
     });
-
     console.log(this.LoginForm.value);
-    this.authService.login(this.LoginForm.value.email, this.LoginForm.value.password).subscribe((res) => {
-      //console.log(res);
-      if (res.status == "false") {
-        console.log(res);
-      } else {
-        //console.log(res);
-        this.authService.saveLocalStorage(res);
-        this.router.navigate(['/home']).then(() => {
-          window.location.reload();
-        });
+    this.authService.login(this.LoginForm.value.email, this.LoginForm.value.password).subscribe(
+      res => {
+        console.log(res)
+        Swal.close();
+      },
+      err => {
+        console.log(err.error)
+        Swal.fire(
+          "Warning!", //title
+          ''+ err.error.message, //main text
+          "error" //icon
+        );
       }
-    })
+    );
+    
   }
 
 }

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 
 import { catchError, map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -25,16 +25,33 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {
     //this.checkToken();
   } 
+  
 
   login(email: string, password: string): Observable<any> {
     return this.http.post('https://api.logo-design360.com/wmta-api/public/api/login', {
       email,
       password
-    }, httpOptions);
+    }, httpOptions).pipe(map((user: any) => {
+      this.saveLocalStorage(user);
+      this.user.next(user);
+      return user;
+    }));
   }
 
-  
+  handlerError(error: any): Observable<never> {
+    let errorMessage = 'Error unknown';
+    if (error) {
+      errorMessage = `Error ${error.error.message}`;
+    }
+    Swal.fire(
+      "Warning!", //title
+      ''+ errorMessage, //main text
+      "error" //icon
+    );
+    return throwError(error.error);
+  }
 
+  //เช็คข้อมูล localStorage
   public checkToken(): void {
     const user = JSON.parse(localStorage.getItem('user') || '0');
     if (user) {
@@ -49,6 +66,7 @@ export class AuthService {
     }
   }
 
+  //บันทึกข้อมูล localStorage
   public saveLocalStorage(user: UserResponse): void {
     const { email, message, ...rest } = user;
     localStorage.setItem('user', JSON.stringify(rest));
@@ -60,11 +78,13 @@ export class AuthService {
   
   logout(): void {
     localStorage.removeItem('user');
-    //this.user.next(null);
     this.router.navigate(['/home']).then(() => {
       window.location.reload();
+      this.user.next(null);
     });
+    
   }
+
 
 }
 

@@ -9,13 +9,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { I18nModule } from '../i18n/i18n.module';
 import { RegisterComponent } from './register/register.component';
 import { ForgotComponent } from './forgot/forgot.component';
+import { NewsComponent } from './news/news.component';
+import { HealthBlogComponent } from './news/health-blog/health-blog.component';
 
 @NgModule({
   declarations: [
     MainComponent,
     LoginComponent,
     RegisterComponent,
-    ForgotComponent
+    ForgotComponent,
+    NewsComponent,
+    HealthBlogComponent
   ],
   imports: [
     CommonModule,

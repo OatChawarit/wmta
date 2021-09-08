@@ -56,13 +56,28 @@ export class RegisterComponent implements OnInit {
   }
 
   registerAccount(form: FormGroup) {
-    if (this.filesSelected== undefined || this.filesSelected == "") {
+    if (this.registerForm.value.email == undefined ||this.registerForm.value.email == "") {
+      Swal.fire(
+        "Found an Error", //title
+        "No information for membership !!", //main text
+        "warning" //icon
+      );
+    } 
+    else if (this.imageSelected== undefined || this.imageSelected == "") {
+      Swal.fire(
+        "Found an Error", //title
+        "No profile picture, please include a profile picture. !!", //main text
+        "warning" //icon
+      );
+    }
+    else if (this.filesSelected== undefined || this.filesSelected == "") {
       Swal.fire(
         "Found an Error", //title
         "Attach files such as : Passport, Medical diagnosis, etc. (.pdf, word, images) !!", //main text
         "warning" //icon
       );
-    } else {
+    }
+     else {
       console.log(this.registerForm.value);
       let sendData = new FormData();
       sendData.append('email', form.value.email);
