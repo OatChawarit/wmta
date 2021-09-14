@@ -7,7 +7,7 @@ import { catchError, map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 import Swal from 'sweetalert2';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 const helper = new JwtHelperService();
 
@@ -20,15 +20,21 @@ declare const $: any;
 @Injectable({
   providedIn: 'root'
 })
-export class SharedService {
+export class ProductsService {
 
   constructor(private http: HttpClient, private router: Router) {
-    
-  } 
 
-  //รายการข่าวสารทั่วไป
-  listNews(): Observable<any> {
-    return this.http.get('https://api.logo-design360.com/wmta-api/public/api/news').pipe(catchError((err) => this.handlerError(err)));
+   }
+
+  
+  //รายการสินค้าและคอร์สรักษาทั้งหมด
+  listProduct(): Observable<any> {
+    return this.http.get('https://api.logo-design360.com/wmta-api/public/api/products').pipe(catchError((err) => this.handlerError(err)));
+  }
+
+  //แสดงรายละเอียดสินค้าและคอร์สรักษา
+  getProduct(id : any): Observable<any> {
+    return this.http.get('https://api.logo-design360.com/wmta-api/public/api/products/'+ id).pipe(catchError((err) => this.handlerError(err)));
   }
 
   handlerError(error: any): Observable<any> {
@@ -45,5 +51,4 @@ export class SharedService {
     // console.error(error); 
     // return of(error.error as any);
   }
-
 }

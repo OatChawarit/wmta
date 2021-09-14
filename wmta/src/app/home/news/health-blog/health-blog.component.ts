@@ -5,8 +5,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2'
 
 import { AuthService } from '../../login/service/auth.service';
-import { ServiceService } from '../../../shared-service/service.service';
+import { SharedService } from '../../../shared-service/service.service';
 import { HelperService } from 'src/app/shared-service/helper.service';
+import { DynamicScriptLoaderService } from 'src/app/shared-service/dynamic-script-loader.service';
 
 
 declare var $: any;
@@ -24,7 +25,7 @@ export class HealthBlogComponent implements OnInit {
   resposeData: any;
   checkData : any;
 
-  constructor(private router: Router, private sharedServ : ServiceService, private http: HttpClient, 
+  constructor(private router: Router, private sharedServ : SharedService, private http: HttpClient, private dynamicScriptLoader : DynamicScriptLoaderService,
     private fb: FormBuilder, private rou: ActivatedRoute, public helper : HelperService) { 
       
     }
@@ -34,6 +35,9 @@ export class HealthBlogComponent implements OnInit {
     this.idnews = paramurl.id;
     //console.log( this.idnews );
     this.loadNews();
+    setTimeout(() => {
+      this.startScript();
+    }, 500);
   }
 
   loadNews() {
@@ -72,8 +76,12 @@ export class HealthBlogComponent implements OnInit {
       this.arrData =  this.checkData;
       //console.log(this.arrData);
       Swal.close();
-      
     }
+  }
+
+  async startScript() {
+    await this.dynamicScriptLoader.load('custom', 'jquery.flexslider-min', 'jquery.swipebox','jquery.meanmenu.min','jquery-2.2.3.min','').then(data => {
+    }).catch(error => console.log(error));
   }
 
 }

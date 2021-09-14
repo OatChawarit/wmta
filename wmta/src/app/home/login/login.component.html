@@ -13,10 +13,9 @@
                 </div>
                 <div class="row mx-auto mb-2">
                     <input type="email" placeholder="Email"  formControlName="email"  [class.is-invalid]="email.invalid && (email.dirty || email.touched)"  />
-                    <!-- <div *ngIf="email.errors?.email">
-                        <small class="text-danger">The email address has an error.</small>
-                    </div> -->
-                    <input type="password" placeholder="Password" formControlName="password" minlength="6"  [class.is-invalid]="password.invalid && (password.dirty || password.touched)" />
+                    <!--  <small *ngIf="email.errors?.email" class="text-danger">The email address has an error.</small> -->
+                    <input type="password" placeholder="Password" formControlName="password" minlength="6"  
+                            [class.is-invalid]="password.invalid && (password.dirty || password.touched)" />
                     <div *ngIf="password.errors?.minlength">
                         <small class="text-danger">Password must be 6 characters long</small>
                     </div>

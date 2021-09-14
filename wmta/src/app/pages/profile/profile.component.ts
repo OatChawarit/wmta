@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../home/login/service/auth.service';
 import Swal from 'sweetalert2'
@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
   tabmenu = [
     { name: 'User Management', status: '', action: '' },
     { name: 'Package History', status: '', action: '' },
+    { name: 'Post Product', status: '', action: '' },
     { name: 'Re-Password', status: '', action: '' },
     { name: 'Logout', status: '', action: '' },
   ];
@@ -76,39 +77,49 @@ export class ProfileComponent implements OnInit {
 
   constructor(private router: Router, private authService: AuthService, private fb : FormBuilder) {
     this.userData = JSON.parse(localStorage.getItem('user') || '0');
-    this.imageSrc = "https://api.logo-design360.com/wmta-api/public" + this.userData.data.image;
-
+    //this.imageSrc = "https://api.logo-design360.com/wmta-api/public" + this.userData.data.image;
+    this.imageSrc = this.userData.data.image;
+    
     this.profileData = this.fb.group({
-      email: ["", Validators.email],
+      email: ["", [Validators.required, Validators.email]],
       //password: ["", Validators.required],
-      id: "",
-      user_id: "",
-      fname: "",
-      lname: "",
+      fname: ["", [Validators.required]],
+      lname: ["", [Validators.required]],
+      birthday: "",
       age: "",
       sex: "",
       type: "",
-      phone: "",
+      phone: ["", [Validators.required, Validators.minLength(9)]],
       line: "",
+      position: "",
+      department: "",
+      organization: "",
       image: "",
       files: [''],
     });
   }
+
+  get fname(): any { return this.profileData.get('fname'); }
+  get lname(): any { return this.profileData.get('lname'); }
+  get phone(): any { return this.profileData.get('password'); }
+  get email(): any { return this.profileData.get('email'); }
 
   ngOnInit(): void {
     this.changeMenu('User Management');
     this.profileData.patchValue({
       email: this.userData.data.email,
       // password: this.userData.data.password,
-      id: this.userData.data.id,
-      user_id: this.userData.data.user_id,
       fname: this.userData.data.fname,
       lname: this.userData.data.lname,
+      birthday : this.userData.data.birthday,
       age: this.userData.data.age,
       sex: this.userData.data.sex,
       type: this.userData.data.type,
       phone: this.userData.data.phone,
       line: this.userData.data.line,
+      position: this.userData.data.position,
+      department: this.userData.data.department,
+      organization: this.userData.data.organization,
       image: this.userData.data.image,
       files: [''],
     });

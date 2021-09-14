@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'rehabilitation-center', loadChildren: () => import('./rehabilitation-center/rehabilitation-center.module').then(m => m.RehabilitationCenterModule)},
   { path: 'elderly-care', loadChildren: () => import('./elderly-care/elderly-care.module').then(m => m.ElderlyCareModule)},
   { path: 'register-partner', loadChildren: () => import('./register-partner/register-partner.module').then(m => m.RegisterPartnerModule)},
+  { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)},
 
   { path: 'login', component: LoginComponent},
 ];

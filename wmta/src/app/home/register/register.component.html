@@ -42,17 +42,34 @@
                                 <label for="first_name">
                                     <p>First name</p>
                                 </label>
-                                <input type="text" class="form-control" formControlName="fname" placeholder="first name"
-                                    title="enter your first name if any.">
+                                <input type="text" class="form-control" formControlName="fname" placeholder="first name" 
+                                    title="enter your first name if any."  [class.is-invalid]="fname.invalid && (fname.dirty || fname.touched)" >
                             </div>
 
                             <div class="col-lg-6">
                                 <label for="last_name">
                                     <p>Last name</p>
                                 </label>
-                                <input type="text" class="form-control" formControlName="lname" placeholder="last name"
-                                    title="enter your last name if any.">
+                                <input type="text" class="form-control" formControlName="lname" placeholder="last name" 
+                                    title="enter your last name if any."  [class.is-invalid]="lname.invalid && (lname.dirty || lname.touched)" >
                             </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="row mx-auto">
+                        <div class="col-lg-6">
+                            <label for="birthday">
+                                <p>Birthday</p>
+                            </label>
+                            <input type="date" class="form-control" formControlName="birthday" />
+                        </div>
+
+                        <div class="col-lg-6">
+                            <label for="City">
+                                <p>Age</p>
+                            </label>
+                            <input type="number" class="form-control" formControlName="age" />
                         </div>
                     </div>
 
@@ -62,8 +79,8 @@
                                 <label for="phone">
                                     <p>Phone</p>
                                 </label>
-                                <input type="text" class="form-control" formControlName="phone"  minlength="20"
-                                    placeholder="enter phone" title="enter your phone number if any.">
+                                <input type="text" class="form-control" formControlName="phone"  minlength="9" maxlength="20" 
+                                    placeholder="enter phone" title="enter your phone number if any." [class.is-invalid]="phone.invalid && (lname.dirty || phone.touched)">
                             </div>
 
                             <div class="col-lg-6">
@@ -77,10 +94,26 @@
 
                     <div class="row mx-auto">
                         <div class="col-lg-6">
-                            <label for="City">
-                                <p>Age</p>
+                            <label for="position">
+                                <p>Position</p>
                             </label>
-                            <input type="number" class="form-control" formControlName="age" />
+                            <input type="text" class="form-control" formControlName="position" />
+                        </div>
+
+                        <div class="col-lg-6">
+                            <label for="department">
+                                <p>Department</p>
+                            </label>
+                            <input type="text" class="form-control" formControlName="department" />
+                        </div>
+                    </div>
+
+                    <div class="row mx-auto">
+                        <div class="col-lg-6">
+                            <label for="organization">
+                                <p>Organization</p>
+                            </label>
+                            <input type="text" class="form-control" formControlName="organization" />
                         </div>
 
                         <div class="col-lg-6">
@@ -95,6 +128,7 @@
                             </select>
                         </div>
                     </div>
+
 
                     <div class="row mx-auto">
                         <div class="col-lg-6">

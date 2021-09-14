@@ -238,12 +238,13 @@
             <hr />
         </div>
         <div class="row ">
-           
+
             <div class="col-md-4 col-sm-6" *ngFor="let item of arrData">
                 <article class="service type-service hentry three-col-service">
                     <figure>
                         <a href="/health-blog/{{ item.id }}" title="{{ item.id }}">
-                            <img src="https://api.logo-design360.com/wmta-api/public/{{ item.image }}" alt="{{ item.title }}" />
+                            <img src="{{ item.image }}" alt="{{ item.title }}"
+                                style="width: 100%; height: 250px; object-fit: cover;" />
                         </a>
                     </figure>
                     <div class="contents clearfix">
@@ -260,9 +261,9 @@
 
         <div class="row">
             <div class="col-12 text-center">
-              <a class="read-more" href="/health-blog">View all health news</a>
+                <a class="read-more" href="/health-blog">View all health news</a>
             </div>
-          </div>
+        </div>
     </div>
 </div>
 <!--news section end-->
@@ -309,7 +310,7 @@
     <div class="container">
         <div class="clearfix">
             <div class="slogan-section text-center clearfix">
-            <h1>Wellness Hotels & Resorts</h1>
+                <h1>Wellness Hotels & Resorts</h1>
                 <h2>Health Resorts & Medical Spas</h2>
                 <p>Choose your favorite Wellness, Health resorts and Medical Spas that match with your preference & life
                     style
@@ -333,178 +334,41 @@
     </div>
 </div>
 
-
-<div class="gallery-page clearfix">
+<!-- Product & Treatment Course -->
+<div class="services-page clearfix">
     <div class="container text-center">
-        <h1> Healthcare Service Providers</h1>
+        <h1>Product & Treatment Course</h1>
         <hr />
     </div>
 
-    <div class="container isotope-wrapper text-center">
+    <div class="container isotope-wrapper">
         <div class="row">
-            <div id="isotope-container" class="clearfix">
-                <!--column start-->
-                <div class="isotope-item advanced-technology free-facilities col-md-4 col-sm-6 ">
-                    <article class="common clearfix hentry ">
-                        <figure class="overlay-effect">
-                            <!-- <a href="assets/images/temp-images/gallery-11.jpg" title="Healthcare Resources"> -->
-                            <a>
-                                <img src="assets/images/temp-images/gallery-11.jpg" alt="gallery-2" />
-                            </a>
-                            <a class="overlay" href="assets/images/temp-images/gallery-11.jpg" title="Healthcare Resources"></a>
-                        </figure>
-                        <div class="content clearfix">
-                            <h4>Healthcare Resources</h4>
-                            <!-- <div class="gallery-item-types">
-                                <a href="#">Advanced Technology</a>,
-                                <a href="#">Free Facilities</a>
-                            </div> -->
-                        </div>
-                    </article>
-                </div>
-                <!--column end-->
 
-                <!--column start-->
-                <div class="isotope-item advanced-technology free-facilities col-md-4 col-sm-6 ">
-                    <article class="common clearfix hentry ">
-                        <figure class="overlay-effect">
-                            <a >
-                                <img src="assets/images/temp-images/gallery-7.jpg" alt="gallery-2" />
-                            </a>
-                            <a class="overlay" href="assets/images/temp-images/gallery-7.jpg" title="World class Hospital"></a>
-                        </figure>
-                        <div class="content clearfix">
-                            <h4>World class Hospital</h4>
-                            <!-- <div class="gallery-item-types">
-                                            <a href="#">Advanced Technology</a>,
-                                            <a href="#">Free Facilities</a>
-                                        </div> -->
+            <div class="col-md-4 col-sm-6" *ngFor="let item of productData">
+                <article class="service type-service hentry three-col-service">
+                    <figure>
+                        <a href="/products/detail/{{ item.id }}" title="{{ item.id }}">
+                            <img src="{{ item.main_picture }}" alt="{{ item.title }}"
+                                style="width: 100%; height: 250px; object-fit: cover;" />
+                        </a>
+                    </figure>
+                    <div class="contents clearfix">
+                        <h4><a href="/products/detail/{{ item.id }}">{{ item.title }}</a></h4>
+                        <div class="entry-content">
+                            <p>{{ item.shot_detail }}&hellip;</p>
                         </div>
-                    </article>
-                </div>
-                <!--column end-->
-
-                <!--column start-->
-                <div class="isotope-item advanced-technology free-facilities col-md-4 col-sm-6 ">
-                    <article class="common clearfix hentry ">
-                        <figure class="overlay-effect">
-                            <a >
-                                <img src="assets/images/temp-images/gallery-5.jpg" alt="gallery-2" />
-                            </a>
-                            <a class="overlay" href="assets/images/temp-images/gallery-5.jpg" title="Rehabilitation facilities"></a>
-                        </figure>
-                        <div class="content clearfix">
-                            <h4>Rehabilitation facilities</h4>
-                            <!-- <div class="gallery-item-types">
-                                        <a href="#">Advanced Technology</a>,
-                                        <a href="#">Free Facilities</a>
-                                    </div> -->
-                        </div>
-                    </article>
-                </div>
-                <!--column end-->
-
-                <!--column start-->
-                <div class="isotope-item advanced-technology free-facilities col-md-4 col-sm-6 ">
-                    <article class="common clearfix hentry ">
-                        <figure class="overlay-effect">
-                            <a >
-                                <img src="assets/images/temp-images/gallery-31.jpg" alt="gallery-2" />
-                            </a>
-                            <a class="overlay" href="assets/images/temp-images/gallery-31.jpg" title="Anti aging"></a>
-                        </figure>
-                        <div class="content clearfix">
-                            <h4>Anti aging</h4>
-                            <!-- <div class="gallery-item-types">
-                                <a href="#">Advanced Technology</a>,
-                                <a href="#">Free Facilities</a>
-                            </div> -->
-                        </div>
-                    </article>
-                </div>
-                <!--column end-->
-
-                <!--column start-->
-                <div class="isotope-item advanced-technology free-facilities col-md-4 col-sm-6 ">
-                    <article class="common clearfix hentry ">
-                        <figure class="overlay-effect">
-                            <a >
-                                <img src="assets/images/temp-images/gallery-41.jpg" alt="gallery-2" />
-                            </a>
-                            <a class="overlay" href="assets/images/temp-images/gallery-41.jpg" title="Plastic Surgery"></a>
-                        </figure>
-                        <div class="content clearfix">
-                            <h4>Plastic Surgery</h4>
-                            <!-- <div class="gallery-item-types">
-                                            <a href="#">Advanced Technology</a>,
-                                            <a href="#">Free Facilities</a>
-                                        </div> -->
-                        </div>
-                    </article>
-                </div>
-                <!--column end-->
-
-                <!--column start-->
-                <div class="isotope-item advanced-technology free-facilities col-md-4 col-sm-6 ">
-                    <article class="common clearfix hentry ">
-                        <figure class="overlay-effect">
-                            <a >
-                                <img src="assets/images/temp-images/gallery-5.jpg" alt="gallery-2" />
-                            </a>
-                            <a class="overlay" href="assets/images/temp-images/gallery-5.jpg" title="Health Resorts & Medical Spas"></a>
-                        </figure>
-                        <div class="content clearfix">
-                            <h4>Health Resorts & Medical Spas</h4>
-                            <!-- <div class="gallery-item-types">
-                                        <a href="#">Advanced Technology</a>,
-                                        <a href="#">Free Facilities</a>
-                                    </div> -->
-                        </div>
-                    </article>
-                </div>
-                <!--column end-->
-
-                <!--column start-->
-                <div class="isotope-item advanced-technology free-facilities col-md-4 col-sm-6 ">
-                    <article class="common clearfix hentry ">
-                        <figure class="overlay-effect">
-                            <a >
-                                <img src="assets/images/temp-images/gallery-7.jpg" alt="gallery-2" />
-                            </a>
-                            <a class="overlay" href="assets/images/temp-images/gallery-7.jpg" title="Dentistry"></a>
-                        </figure>
-                        <div class="content clearfix">
-                            <h4>Dentistry</h4>
-                            <!-- <div class="gallery-item-types">
-                                        <a href="#">Advanced Technology</a>,
-                                        <a href="#">Free Facilities</a>
-                                    </div> -->
-                        </div>
-                    </article>
-                </div>
-                <!--column end-->
-
-                <!--column start-->
-                <div class="isotope-item advanced-technology free-facilities col-md-4 col-sm-6 ">
-                    <article class="common clearfix hentry ">
-                        <figure class="overlay-effect">
-                            <a >
-                                <img src="assets/images/temp-images/gallery-11.jpg" alt="gallery-2" />
-                            </a>
-                            <a class="overlay" href="assets/images/temp-images/gallery-11.jpg" title="Exclusive trip"></a>
-                        </figure>
-                        <div class="content clearfix">
-                            <h4>Exclusive trip</h4>
-                            <!-- <div class="gallery-item-types">
-                                        <a href="#">Advanced Technology</a>,
-                                        <a href="#">Free Facilities</a>
-                                    </div> -->
-                        </div>
-                    </article>
-                </div>
-                <!--column end-->
-
+                        <a class="read-more" href="/products/detail/{{ item.id }}">See Packages</a>
+                    </div>
+                </article>
             </div>
+
         </div>
+        <div class="row">
+            <div class="col-12 text-center">
+              <a class="read-more" href="/products">View all Packages</a>
+            </div>
+          </div>
     </div>
+
 </div>
+<!-- Product & Treatment Course -->

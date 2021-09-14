@@ -1,12 +1,12 @@
 /*------------------------------------------------------*/
 /* Custom Styles By Oat Chawarit
 /*------------------------------------------------------*/
-.ng-valid[required], .ng-valid.required  {
+.is-valid[required], .is-valid.required  {
   border: 1px solid #57b856;
   box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 6px #5ddb5b !important;
 }
 
- .ng-invalid:invalid {
+ .is-invalid:invalid,.is-invalid:focus {
   border: 1px solid #d94b44;
   box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 6px #f15b5a !important;
 }
@@ -29,6 +29,23 @@
   transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
 }
 
+.btn-outline-success {
+  color: #198754 !important;
+  border-color: #198754 !important;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: #6c757d !important;
+  border-color: #6c757d !important;
+}
+
+.btn-buy {
+  background-color: #288a72;
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+}
 
 @media (max-width: 768px) {
   .img-profile{
@@ -297,7 +314,7 @@ p {
 }
 .btn:hover,
 .btn:focus {
-  color: #136d82;
+  color: #000;
 }
 input,
 textarea {

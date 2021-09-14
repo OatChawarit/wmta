@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ServiceService } from 'src/app/shared-service/service.service';
+import { SharedService } from 'src/app/shared-service/service.service';
 
 import Swal from 'sweetalert2';
 
@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 export class NewsComponent implements OnInit {
 
   arrData: any = [];
-  constructor(private router: Router, private http: HttpClient, private sharedServ : ServiceService) {
+  constructor(private router: Router, private http: HttpClient, private sharedServ : SharedService) {
 
   }
 
@@ -32,7 +32,7 @@ export class NewsComponent implements OnInit {
     });
     this.sharedServ.listNews().subscribe((res) => {
       //console.log(res);
-      this.arrData = res;
+      this.arrData = res.data.reverse();
       Swal.close();
     });
   }

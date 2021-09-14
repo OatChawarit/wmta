@@ -27,3 +27,22 @@
     border: 0;
     border-top: 1px solid #eeeeee;
 }
+
+span.cart {
+    min-height: 2em;
+    min-width: 2em;
+    padding: .05em;
+    font-weight: 600;
+    position: absolute;
+    text-align: center;
+    line-height: 1.8;
+    top: -.8em;
+    right: -.5em;
+    margin: 0;
+    border-radius: 100%;
+    color: #fff;
+    background-color: #f15b5a;
+    font-size: 1em;
+    -webkit-font-smoothing: antialiased;
+    z-index: 99;
+}

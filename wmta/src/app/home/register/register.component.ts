@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DynamicScriptLoaderService } from 'src/app/shared-service/dynamic-script-loader.service';
 import Swal from 'sweetalert2'
 import { AuthService } from '../login/service/auth.service';
 import { ServiceService } from './service/service.service';
@@ -26,7 +27,7 @@ export class RegisterComponent implements OnInit {
   selectedFiles: FileList | undefined;
   progressInfos :  any;
 
-  constructor( private router: Router, private http: HttpClient, private fb: FormBuilder,
+  constructor( private router: Router, private http: HttpClient, private fb: FormBuilder, private dynamicScriptLoader : DynamicScriptLoaderService,
     private servRegister : ServiceService, private authService: AuthService) {
 
     this.registerForm = this.fb.group({
@@ -34,9 +35,13 @@ export class RegisterComponent implements OnInit {
       password: ["", Validators.required, Validators.minLength(6)],
       fname: "",
       lname: "",
+      birthday: "",
       age : "",
       sex: "",
       phone: "",
+      position: "",
+      department: "",
+      organization: "",
       line:  "",
       type: "0",  //0=สมาชิกทั่วไป 1=โรงแรม 2=โรงบาล
       image: "",
@@ -48,6 +53,7 @@ export class RegisterComponent implements OnInit {
    get fname(): any { return this.registerForm.get('fname'); }
    get lname(): any { return this.registerForm.get('lname'); }
    get line(): any { return this.registerForm.get('line'); }
+   get phone(): any { return this.registerForm.get('phone'); }
    get password(): any { return this.registerForm.get('password'); }
    get email(): any { return this.registerForm.get('email'); }
 
@@ -59,7 +65,7 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.value.email == undefined ||this.registerForm.value.email == "") {
       Swal.fire(
         "Found an Error", //title
-        "No information for membership !!", //main text
+        "Incomplete information !!", //main text
         "warning" //icon
       );
     } 
@@ -78,12 +84,13 @@ export class RegisterComponent implements OnInit {
       );
     }
      else {
-      console.log(this.registerForm.value);
+      //console.log(this.registerForm.value);
       let sendData = new FormData();
       sendData.append('email', form.value.email);
       sendData.append('password', form.value.password);
       sendData.append('fname', form.value.fname);
       sendData.append('lname', form.value.lname);
+      sendData.append('birthday', form.value.birthday);
       sendData.append('age', form.value.age);
       sendData.append('sex', form.value.sex);
       sendData.append('phone', form.value.phone);
@@ -98,6 +105,10 @@ export class RegisterComponent implements OnInit {
       for (let i = 0; i < this.filesSelected.length; i++) {
         sendData.append('files[]', this.filesSelected[i]);
       }
+      sendData.append('position', form.value.position);
+      sendData.append('department', form.value.department);
+      sendData.append('organization', form.value.organization);
+ 
       //console.log(sendData.getAll('files[]'));
       //fileList =  this.imageSelected;
       //Array.from(fileList).forEach((file: File, index) => {
@@ -105,7 +116,7 @@ export class RegisterComponent implements OnInit {
       //sendData.append(`fileName`, file.name);
       //sendData.append('filePath', 'news');
       //});
-      this.servRegister.new(sendData).subscribe((res) => {
+      this.servRegister.addAccount(sendData).subscribe((res) => {
         this.resData = res;
         console.log(this.resData);
         if (this.resData.status == "false") {
@@ -177,6 +188,13 @@ export class RegisterComponent implements OnInit {
   onFileChange(file:any) {
     //this.imageSelected = file;
     let files : File = file[0];
+  }
+
+  async startScript() {
+    await this.dynamicScriptLoader.load('custom', 'respond.min', 'jquery.swipebox','jquery.velocity','jquery.validate.min','jquery.meanmenu.min',
+    'jquery.ui.core.min','jquery.jplayer.min','jquery-migrate-1.2.1.min','jquery-twitterFetcher','jquery.isotope.min','jquery.ui.datepicker.min',
+    'jquery.form','jquery.flexslider-min','jquery.autosize.min','jquery.appear','jquery-2.2.3.min').then(data => {
+    }).catch(error => console.log(error));
   }
 
 }
