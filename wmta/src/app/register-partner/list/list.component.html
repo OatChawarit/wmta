@@ -13,340 +13,425 @@
             <div id="exTab1" class="container col-lg-12">
                 <ul class="nav nav-pillcustom text-center">
                     <li class="active">
-                        <a href="#Register1" data-toggle="tab">Hospital / Medical center</a>
+                        <a href="#Register1" data-toggle="tab" (click)="checkRegis('Register1')">Hospital / Medical center</a>
                     </li>
                     <li>
-                        <a href="#Register2" data-toggle="tab">Wellness hotel & Resort</a>
+                        <a href="#Register2" data-toggle="tab" (click)="checkRegis('Register2')">Wellness hotel & Resort</a>
                     </li>
                     <li>
-                        <a href="#Register3" data-toggle="tab">Doctor (Telemedicine)</a>
+                        <a href="#Register3" data-toggle="tab" (click)="checkRegis('Register3')">Doctor (Telemedicine)</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="#Register4" data-toggle="tab">Travel Agent</a>
                     </li>
                     <li>
                         <a href="#Register5" data-toggle="tab">Facilitator</a>
-                    </li>
+                    </li> -->
                 </ul>
 
                 <div class="tab-content clearfix mt-4">
                     <!-- Hospital / Medical center< -->
                     <div class="tab-pane active" id="Register1">
                         <form [formGroup]="registerHospital">
-                            <div class="row mx-auto">
-                                <div class="col-md-6 ">
-                                    <label>Place Name [EN]*</label>
-                                    <input type="text" class="form-control" id="pnameEn" placeholder="Place Name" />
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Place Name [TH] *</label>
-                                    <input type="text" class="form-control" id="pnameTh" placeholder="ชื่อสถานที่ของท่าน" />
-                                </div>
-                            </div>
-
-                            <div class="row mx-auto">
-                                <div class="col-md-6">
-                                    <label>Country *</label>
-                                    <select name="nationality" id="nationality" class="form-control"
-                                        aria-required="true" data-live-search="true">
-                                        <option value="">--- Choose ---</option>
-                                        <option value="Afghanistan">Afghanistan</option>
-                                        <option value="Albania">Albania</option>
-                                        <option value="Albania">Algeria</option>
-                                        <option value="American Samoa">American Samoa</option>
-                                        <option value="Andorra">Andorra</option>
-                                        <option value="Angola">Angola</option>
-                                        <option value="Anguilla">Anguilla</option>
-                                        <option value="Antarctica">Antarctica</option>
-                                        <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                                        <option value="Argentina">Argentina</option>
-                                        <option value="Armenia">Armenia</option>
-                                        <option value="Aruba">Aruba</option>
-                                        <option value="Australia">Australia</option>
-                                        <option value="Austria">Austria</option>
-                                        <option value="Azerbaijan">Azerbaijan</option>
-                                        <option value="Bahamas">Bahamas</option>
-                                        <option value="Bahrain">Bahrain</option>
-                                        <option value="Bangladesh">Bangladesh</option>
-                                        <option value="Barbados">Barbados</option>
-                                        <option value="Belarus">Belarus</option>
-                                        <option value="Belgium">Belgium</option>
-                                        <option value="Belize">Belize</option>
-                                        <option value="Benin">Benin</option>
-                                        <option value="Bermuda">Bermuda</option>
-                                        <option value="Bhutan">Bhutan</option>
-                                        <option value="Bolivia">Bolivia</option>
-                                        <option value="Bosnia-Herzegovina">Bosnia-Herzegovina</option>
-                                        <option value="Botswana">Botswana</option>
-                                        <option value="Bouvet Island">Bouvet Island</option>
-                                        <option value="Brazil">Brazil</option>
-                                        <option value="British Indian Ocean Territory">British Indian Ocean Territory
-                                        </option>
-                                        <option value="Brunei Darussalam">Brunei Darussalam</option>
-                                        <option value="Bulgaria">Bulgaria</option>
-                                        <option value="Burkina Faso">Burkina Faso</option>
-                                        <option value="Burundi">Burundi</option>
-                                        <option value="Cambodia">Cambodia</option>
-                                        <option value="Cameroon">Cameroon</option>
-                                        <option value="Canada">Canada</option>
-                                        <option value="Cape Verde">Cape Verde</option>
-                                        <option value="Cayman Islands">Cayman Islands</option>
-                                        <option value="Central African Republic">Central African Republic</option>
-                                        <option value="Chad">Chad</option>
-                                        <option value="Chile">Chile</option>
-                                        <option value="China">China</option>
-                                        <option value="Christmas Island">Christmas Island</option>
-                                        <option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
-                                        <option value="Colombia">Colombia</option>
-                                        <option value="Comoros">Comoros</option>
-                                        <option value="Congo">Congo</option>
-                                        <option value="Congo (Dem. Republic)">Congo (Dem. Republic)</option>
-                                        <option value="Cook Islands">Cook Islands</option>
-                                        <option value="Costa Rica">Costa Rica</option>
-                                        <option value="Croatia">Croatia</option>
-                                        <option value="Cuba">Cuba</option>
-                                        <option value="Cyprus">Cyprus</option>
-                                        <option value="Czech Republic">Czech Republic</option>
-                                        <option value="Denmark">Denmark</option>
-                                        <option value="Djibouti">Djibouti</option>
-                                        <option value="Dominica">Dominica</option>
-                                        <option value="East Timor">East Timor</option>
-                                        <option value="Ecuador">Ecuador</option>
-                                        <option value="Egypt">Egypt</option>
-                                        <option value="El Salvador">El Salvador</option>
-                                        <option value="Equatorial Guinea">Equatorial Guinea</option>
-                                        <option value="Eritrea">Eritrea</option>
-                                        <option value="Estonia">Estonia</option>
-                                        <option value="Ethiopia">Ethiopia</option>
-                                        <option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option>
-                                        <option value="Faroe Islands">Faroe Islands</option>
-                                        <option value="Fiji">Fiji</option>
-                                        <option value="Finland">Finland</option>
-                                        <option value="France">France</option>
-                                        <option value="French Guiana">French Guiana</option>
-                                        <option value="French Polynesia">French Polynesia</option>
-                                        <option value="French Southern Territories">French Southern Territories</option>
-                                        <option value="Gabon">Gabon</option>
-                                        <option value="Gambia">Gambia</option>
-                                        <option value="Georgia">Georgia</option>
-                                        <option value="Germany">Germany</option>
-                                        <option value="Ghana">Ghana</option>
-                                        <option value="Gibraltar">Gibraltar</option>
-                                        <option value="Greece">Greece</option>
-                                        <option value="Greenland">Greenland</option>
-                                        <option value="Grenada">Grenada</option>
-                                        <option value="Guadeloupe">Guadeloupe</option>
-                                        <option value="Guam">Guam</option>
-                                        <option value="Guatemala">Guatemala</option>
-                                        <option value="Guernsey and Alderney">Guernsey and Alderney</option>
-                                        <option value="Guinea">Guinea</option>
-                                        <option value="Guinea-Bissau">Guinea-Bissau</option>
-                                        <option value="Guyana">Guyana</option>
-                                        <option value="Haiti">Haiti</option>
-                                        <option value="Heard and McDonald Islands">Heard and McDonald Islands</option>
-                                        <option value="Honduras">Honduras</option>
-                                        <option value="Hong Kong">Hong Kong</option>
-                                        <option value="Hungary">Hungary</option>
-                                        <option value="Iceland">Iceland</option>
-                                        <option value="India">India</option>
-                                        <option value="Indonesia">Indonesia</option>
-                                        <option value="Iran">Iran</option>
-                                        <option value="Iraq">Iraq</option>
-                                        <option value="Ireland">Ireland</option>
-                                        <option value="Island of Man">Island of Man</option>
-                                        <option value="Israel">Israel</option>
-                                        <option value="Italy">Italy</option>
-                                        <option value="Ivory Coast">Ivory Coast</option>
-                                        <option value="Jamaica">Jamaica</option>
-                                        <option value="Japan">Japan</option>
-                                        <option value="Jersey">Jersey</option>
-                                        <option value="Jordan">Jordan</option>
-                                        <option value="Kazakhstan">Kazakhstan</option>
-                                        <option value="Kenya">Kenya</option>
-                                        <option value="Kiribati">Kiribati</option>
-                                        <option value="Korea (Democratic Republic of)">Korea (Democratic Republic of)
-                                        </option>
-                                        <option value="Korea (Republic of)">Korea (Republic of)</option>
-                                        <option value="Kosovo">Kosovo</option>
-                                        <option value="Kuwait">Kuwait</option>
-                                        <option value="Kyrgyz Republic">Kyrgyz Republic</option>
-                                        <option value="Laos">Laos</option>
-                                        <option value="Latvia">Latvia</option>
-                                        <option value="Lebanon">Lebanon</option>
-                                        <option value="Lesotho">Lesotho</option>
-                                        <option value="Liberia">Liberia</option>
-                                        <option value="Libya">Libya</option>
-                                        <option value="Liechtenstein">Liechtenstein</option>
-                                        <option value="Lithuania">Lithuania</option>
-                                        <option value="Luxembourg">Luxembourg</option>
-                                        <option value="Macau">Macau</option>
-                                        <option value="Macedonia">Macedonia</option>
-                                        <option value="Madagascar">Madagascar</option>
-                                        <option value="Malawi">Malawi</option>
-                                        <option value="Malaysia">Malaysia</option>
-                                        <option value="Maldives">Maldives</option>
-                                        <option value="Mali">Mali</option>
-                                        <option value="Malta">Malta</option>
-                                        <option value="Marshall Islands">Marshall Islands</option>
-                                        <option value="Martinique">Martinique</option>
-                                        <option value="Mauritania">Mauritania</option>
-                                        <option value="Mauritius">Mauritius</option>
-                                        <option value="Mayotte">Mayotte</option>
-                                        <option value="Mexico">Mexico</option>
-                                        <option value="Micronesia">Micronesia</option>
-                                        <option value="Moldavia">Moldavia</option>
-                                        <option value="Monaco">Monaco</option>
-                                        <option value="Mongolia">Mongolia</option>
-                                        <option value="Montenegro">Montenegro</option>
-                                        <option value="Montserrat">Montserrat</option>
-                                        <option value="Morocco">Morocco</option>
-                                        <option value="Mozambique">Mozambique</option>
-                                        <option value="Myanmar">Myanmar</option>
-                                        <option value="Namibia">Namibia</option>
-                                        <option value="Nauru">Nauru</option>
-                                        <option value="Nepal">Nepal</option>
-                                        <option value="Netherlands">Netherlands</option>
-                                        <option value="Netherlands Antilles">Netherlands Antilles</option>
-                                        <option value="New Caledonia">New Caledonia</option>
-                                        <option value="New Zealand">New Zealand</option>
-                                        <option value="Nicaragua">Nicaragua</option>
-                                        <option value="Niger">Niger</option>
-                                        <option value="Nigeria">Nigeria</option>
-                                        <option value="Niue">Niue</option>
-                                        <option value="Norfolk Island">Norfolk Island</option>
-                                        <option value="Northern Mariana Islands">Northern Mariana Islands</option>
-                                        <option value="Norway">Norway</option>
-                                        <option value="Oman">Oman</option>
-                                        <option value="Pakistan">Pakistan</option>
-                                        <option value="Palau">Palau</option>
-                                        <option value="Palestinian Territory">Palestinian Territory</option>
-                                        <option value="Panama">Panama</option>
-                                        <option value="Papua-New Guinea">Papua-New Guinea</option>
-                                        <option value="Paraguay">Paraguay</option>
-                                        <option value="Peru">Peru</option>
-                                        <option value="Philippines">Philippines</option>
-                                        <option value="Pitcairn">Pitcairn</option>
-                                        <option value="Poland">Poland</option>
-                                        <option value="Portugal">Portugal</option>
-                                        <option value="Puerto Rico">Puerto Rico</option>
-                                        <option value="Qatar">Qatar</option>
-                                        <option value="Re union">Re union</option>
-                                        <option value="Republic of Dominica">Republic of Dominica</option>
-                                        <option value="Romania">Romania</option>
-                                        <option value="Russian Federation">Russian Federation</option>
-                                        <option value="Rwanda">Rwanda</option>
-                                        <option value="Saint Barthelemy">Saint Barthelemy</option>
-                                        <option value="Saint Helena">Saint Helena</option>
-                                        <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
-                                        <option value="Saint Lucia">Saint Lucia</option>
-                                        <option value="Saint Martin">Saint Martin</option>
-                                        <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
-                                        <option value="Saint Vincent and the Grenadines">Saint Vincent and the
-                                            Grenadines</option>
-                                        <option value="Samoa">Samoa</option>
-                                        <option value="San Marino">San Marino</option>
-                                        <option value="Sao Tome and Principe">Sao Tome and Principe</option>
-                                        <option value="Saudi Arabia">Saudi Arabia</option>
-                                        <option value="Senegal">Senegal</option>
-                                        <option value="Serbia">Serbia</option>
-                                        <option value="Seychelles">Seychelles</option>
-                                        <option value="Sierra Leone">Sierra Leone</option>
-                                        <option value="Singapore">Singapore</option>
-                                        <option value="Slovakia">Slovakia</option>
-                                        <option value="Slovenia">Slovenia</option>
-                                        <option value="Solomon Islands">Solomon Islands</option>
-                                        <option value="Somalia">Somalia</option>
-                                        <option value="South Africa">South Africa</option>
-                                        <option value="South Georgia and South Sandwich Islands">South Georgia and South
-                                            Sandwich Islands</option>
-                                        <option value="Spain">Spain</option>
-                                        <option value="Sri Lanka">Sri Lanka</option>
-                                        <option value="Sudan">Sudan</option>
-                                        <option value="Suriname">Suriname</option>
-                                        <option value="Svalbard and Jan Mayen Islands">Svalbard and Jan Mayen Islands
-                                        </option>
-                                        <option value="Swaziland">Swaziland</option>
-                                        <option value="Sweden">Sweden</option>
-                                        <option value="Switzerland">Switzerland</option>
-                                        <option value="Syrian Arab Republic">Syrian Arab Republic</option>
-                                        <option value="Taiwan">Taiwan</option>
-                                        <option value="Tajikistan">Tajikistan</option>
-                                        <option value="Tanzania">Tanzania</option>
-                                        <option value="Thailand">Thailand</option>
-                                        <option value="Togo">Togo</option>
-                                        <option value="Tokelau">Tokelau</option>
-                                        <option value="Tonga">Tonga</option>
-                                        <option value="Trinidad and Tobago">Trinidad and Tobago</option>
-                                        <option value="Tunisia">Tunisia</option>
-                                        <option value="Turkey">Turkey</option>
-                                        <option value="Turkmenistan">Turkmenistan</option>
-                                        <option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
-                                        <option value="Tuvalu">Tuvalu</option>
-                                        <option value="Uganda">Uganda</option>
-                                        <option value="Ukraine">Ukraine</option>
-                                        <option value="United Arab Emirates">United Arab Emirates</option>
-                                        <option value="United Kingdom">United Kingdom</option>
-                                        <option value="United States Minor Outlying Islands">United States Minor
-                                            Outlying Islands</option>
-                                        <option value="Uruguay">Uruguay</option>
-                                        <option value="USA">USA</option>
-                                        <option value="Uzbekistan">Uzbekistan</option>
-                                        <option value="Vanuatu">Vanuatu</option>
-                                        <option value="Vatican (Holy See)">Vatican (Holy See)</option>
-                                        <option value="Venezuela">Venezuela</option>
-                                        <option value="Vietnam">Vietnam</option>
-                                        <option value="Virgin Islands (British)">Virgin Islands (British)</option>
-                                        <option value="Virgin Islands (U.S.)">Virgin Islands (U.S.)</option>
-                                        <option value="Wallis and Futuna Islands">Wallis and Futuna Islands</option>
-                                        <option value="Western Sahara">Western Sahara</option>
-                                        <option value="Yemen">Yemen</option>
-                                        <option value="Zambia">Zambia</option>
-                                        <option value="Zimbabwe">Zimbabwe</option>
-                                    </select>
+                            <div class="col-lg-12 cardOriginal">
+                                <div class="row mx-auto">
+                                    <div class="col-lg-12 text-center">
+                                        <h3>Sign Up</h3>
+                                        <!-- <div class="social-container">
+                                        <a href="#" class="social"><i class="fa fa-facebook"></i></a>
+                                        <a href="#" class="social"><i class="fa fa-google-plus"></i></a>
+                                        <a href="#" class="social"><i class="fa fa-linkedin"></i></a>
+                                    </div> -->
+                                        <p>Register an account for a hospital</p>
+                                    </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <label>City *</label>
-                                    <!-- <select name="country" id="country" class="form-control" aria-required="true"
-                                        data-live-search="true">
-                                        <option value="">--- Choose ---</option>
-         
-                                    </select> -->
-                                    <input type="text" class="form-control" id="city" placeholder="city" />
-                                </div>
-                            </div>
+                                <div class="row mx-auto mt-4">
+                                    <div class="text-center col-lg-12">
+                                        <img [src]="imageSrc || 'assets/images/user_icon.png'" (click)="uploadBtn()"
+                                            class="img-thumbnail img-circle img-profile" style="cursor: pointer;"
+                                            alt="avatar">
+                                    </div>
+                                    <div class="p-image">
+                                        <i class="fa fa-camera upload-button" (click)="uploadBtn()"></i>
+                                        <input type="file" (change)="readFileImg($event)" formControlName="image"
+                                            class="file-upload action-btn" accept="image/*">
 
-                            <div class="row mx-auto">
-                                <div class="col-md-6 ">
-                                    <label>Email *</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Email" />
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label>Tel *</label>
-                                    <input type="text" class="form-control" id="tel" placeholder="Tel" />
+
+                                <div class="row mx-auto mt-4">
+                                    <div class="form-group">
+                                        <div class="col-lg-6">
+                                            <label for="first_name">
+                                                <p>First name</p>
+                                            </label>
+                                            <input type="text" class="form-control" formControlName="fname"
+                                                placeholder="first name" title="enter your first name if any."
+                                                [class.is-invalid]="fnameHospital.invalid && (fnameHospital.dirty || fnameHospital.touched)">
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <label for="last_name">
+                                                <p>Last name</p>
+                                            </label>
+                                            <input type="text" class="form-control" formControlName="lname"
+                                                placeholder="last name" title="enter your last name if any."
+                                                [class.is-invalid]="lnameHospital.invalid && (lnameHospital.dirty || lnameHospital.touched)">
+                                        </div>
+                                    </div>
                                 </div>
+
+
+                                <div class="row mx-auto">
+                                    <div class="col-lg-6">
+                                        <label for="birthday">
+                                            <p>Birthday</p>
+                                        </label>
+                                        <input type="date" class="form-control" formControlName="birthday" />
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <label for="City">
+                                            <p>Age</p>
+                                        </label>
+                                        <input type="number" class="form-control" formControlName="age" />
+                                    </div>
+                                </div>
+
+                                <div class="row mx-auto">
+                                    <div class="form-group">
+                                        <div class="col-lg-6">
+                                            <label for="phone">
+                                                <p>Phone</p>
+                                            </label>
+                                            <input type="text" class="form-control" formControlName="phone"
+                                                minlength="9" maxlength="20" placeholder="enter phone"
+                                                title="enter your phone number if any."
+                                                [class.is-invalid]="phoneHospital.invalid && (phoneHospital.dirty || phoneHospital.touched)">
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <label for="City">
+                                                <p>Line (Ex.@linename)</p>
+                                            </label>
+                                            <input type="text" class="form-control" formControlName="line" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mx-auto">
+                                    <div class="col-lg-6">
+                                        <label for="position">
+                                            <p>Position</p>
+                                        </label>
+                                        <input type="text" class="form-control" formControlName="position" />
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <label for="department">
+                                            <p>Department</p>
+                                        </label>
+                                        <input type="text" class="form-control" formControlName="department" />
+                                    </div>
+                                </div>
+
+                                <div class="row mx-auto">
+                                    <div class="col-lg-6">
+                                        <label for="organization">
+                                            <p>Organization</p>
+                                        </label>
+                                        <input type="text" class="form-control" formControlName="organization" />
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <label for="City">
+                                            <p>Sex</p>
+                                        </label>
+                                        <select formControlName="sex" class="form-control" aria-required="true"
+                                            data-live-search="true">
+                                            <option value="">--- Choose ---</option>
+                                            <option value="M">Man</option>
+                                            <option value="W">Woman</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="row mx-auto">
+                                    <div class="col-lg-6">
+                                        <label for="emailtxt">
+                                            <p>Email</p>
+                                        </label>
+                                        <div>
+                                            <input type="email" placeholder="example@gmail.com" formControlName="email"
+                                                class="form-control"
+                                                [class.is-invalid]="emailHospital.invalid && (emailHospital.dirty || emailHospital.touched)" />
+                                            <div *ngIf="(emailHospital.valid && emailHospital.touched) || emailHospital.dirty">
+                                                <div *ngIf="emailHospital.errors?.email">
+                                                    <small class="text-danger">The email address has an error.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <label for="Password">
+                                            <p>Password</p>
+                                        </label>
+                                        <input type="password" class="form-control" formControlName="password"
+                                            minlength="6"
+                                            [class.is-invalid]="passwordHospital.invalid && (passwordHospital.dirty || passwordHospital.touched)" />
+                                        <div *ngIf="(passwordHospital.valid && passwordHospital.touched) || passwordHospital.dirty">
+                                            <div *ngIf="passwordHospital.errors?.minlength">
+                                                <small class="text-danger">Password must be 6 characters long</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mx-auto">
+                                    <div class="col-lg-6">
+                                        <label for="emailtxt">
+                                            <p>Attach files such as : Passport, Medical diagnosis, etc. (images) </p>
+                                        </label>
+
+                                        <div *ngFor="let progressInfo of progressInfos" class="mb-2 row col-lg-12">
+                                            <span>{{ progressInfo.rows }}) {{ progressInfo.fileName }}</span>
+                                            <!-- <div class="progress">
+                                                <div class="progress-bar  progress-bar-striped " role="progressbar"
+                                                attr.aria-valuenow="{{ progressInfo.value }}"
+                                                aria-valuemin="0"
+                                                aria-valuemax="100"
+                                                [ngStyle]="{ width: progressInfo.value + '%' }"> {{ progressInfo.value }}% </div>
+                                            </div> -->
+                                        </div>
+
+                                        <div class="row">
+                                            <!--  .csv, .docx, .doc, .xlsx, .xls, .txt -->
+                                            <div class="col-lg-8">
+                                                <input type="file" class="btn btn-info file-select" accept="image/*"
+                                                    formControlName="files[]" (change)="fileArrList($event)" multiple />
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <button class="btn btn-warning mx-2" type="button" style="color: #fff;"
+                                                    (click)="clearFile()">
+                                                    <i class="glyphicon glyphicon-repeat"></i>&nbsp;Clear</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row mx-auto text-center">
+                                    <div class="col-lg-12" style="margin-top: 2.5rem!important;">
+                                        <button class="btn btn-lg btn-success mx-2" type="button"
+                                            (click)="registerAccount(registerHospital)">
+                                            <i class="glyphicon glyphicon-ok-sign"></i>&nbsp;Confirm</button>
+                                        <button class="btn btn-lg" type="button" style="color: #7b7d85;"><i
+                                                class="glyphicon glyphicon-repeat"></i>&nbsp;Reset</button>
+                                    </div>
+                                </div>
+
                             </div>
-                            
-                         </form>                     
+                        </form>
                     </div>
 
-                     <!-- Wellness hotel & resort -->
-                    <div class="tab-pane" id="Register2">
-                        <form>
-                            <div class="row mx-auto">
-                                <div class="col-md-6 ">
-                                    <label>First name *</label>
-                                    <input type="text" class="form-control" id="fname" placeholder="First name" />
+                    <!-- Wellness hotel & resort -->
+                    <!-- <div class="tab-pane" id="Register2">
+                        <form [formGroup]="registerHotel">
+                            <div class="col-lg-12 cardOriginal">
+                                <div class="row mx-auto">
+                                    <div class="col-lg-12 text-center">
+                                        <h3>Sign Up</h3>
+                                        <p>Register an account for hotel & resort</p>
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label>Last name *</label>
-                                    <input type="text" class="form-control" id="lanme" placeholder="Last name" />
-                                </div>
-                            </div>
-                         </form>
-                    </div>
 
-                    <!-- Doctor (Telemedicine) --> 
+                                <div class="row mx-auto mt-4">
+                                    <div class="text-center col-lg-12">
+                                        <img [src]="imageSrc || 'assets/images/user_icon.png'" (click)="uploadBtn()"
+                                            class="img-thumbnail img-circle img-profile" style="cursor: pointer;"
+                                            alt="avatar">
+                                    </div>
+                                    <div class="p-image">
+                                        <i class="fa fa-camera upload-button" (click)="uploadBtn()"></i>
+                                        <input type="file" (change)="readFileImg($event)" formControlName="image"
+                                            class="file-upload action-btn" accept="image/*">
+
+                                    </div>
+                                </div>
+
+                                <div class="row mx-auto mt-4">
+                                    <div class="form-group">
+                                        <div class="col-lg-6">
+                                            <label for="first_name">
+                                                <p>First name</p>
+                                            </label>
+                                            <input type="text" class="form-control" formControlName="fname"
+                                                placeholder="first name" title="enter your first name if any."
+                                                [class.is-invalid]="fnameHotel.invalid && (fnameHotel.dirty || fnameHotel.touched)">
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <label for="last_name">
+                                                <p>Last name</p>
+                                            </label>
+                                            <input type="text" class="form-control" formControlName="lname"
+                                                placeholder="last name" title="enter your last name if any."
+                                                [class.is-invalid]="lnameHotel.invalid && (lnameHotel.dirty || lnameHotel.touched)">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row mx-auto">
+                                    <div class="col-lg-6">
+                                        <label for="birthday">
+                                            <p>Birthday</p>
+                                        </label>
+                                        <input type="date" class="form-control" formControlName="birthday" />
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <label for="City">
+                                            <p>Age</p>
+                                        </label>
+                                        <input type="number" class="form-control" formControlName="age" />
+                                    </div>
+                                </div>
+
+                                <div class="row mx-auto">
+                                    <div class="form-group">
+                                        <div class="col-lg-6">
+                                            <label for="phone">
+                                                <p>Phone</p>
+                                            </label>
+                                            <input type="text" class="form-control" formControlName="phone"
+                                                minlength="9" maxlength="20" placeholder="enter phone"
+                                                title="enter your phone number if any."
+                                                [class.is-invalid]="phoneHotel.invalid && (phoneHotel.dirty || phoneHotel.touched)">
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <label for="City">
+                                                <p>Line (Ex.@linename)</p>
+                                            </label>
+                                            <input type="text" class="form-control" formControlName="line" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mx-auto">
+                                    <div class="col-lg-6">
+                                        <label for="position">
+                                            <p>Position</p>
+                                        </label>
+                                        <input type="text" class="form-control" formControlName="position" />
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <label for="department">
+                                            <p>Department</p>
+                                        </label>
+                                        <input type="text" class="form-control" formControlName="department" />
+                                    </div>
+                                </div>
+
+                                <div class="row mx-auto">
+                                    <div class="col-lg-6">
+                                        <label for="organization">
+                                            <p>Organization</p>
+                                        </label>
+                                        <input type="text" class="form-control" formControlName="organization" />
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <label for="City">
+                                            <p>Sex</p>
+                                        </label>
+                                        <select formControlName="sex" class="form-control" aria-required="true"
+                                            data-live-search="true">
+                                            <option value="">--- Choose ---</option>
+                                            <option value="M">Man</option>
+                                            <option value="W">Woman</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="row mx-auto">
+                                    <div class="col-lg-6">
+                                        <label for="emailtxt">
+                                            <p>Email</p>
+                                        </label>
+                                        <div>
+                                            <input type="email" placeholder="example@gmail.com" formControlName="email"
+                                                class="form-control"
+                                                [class.is-invalid]="emailHotel.invalid && (emailHotel.dirty || emailHotel.touched)" />
+                                            <div *ngIf="(emailHotel.valid && emailHotel.touched) || emailHotel.dirty">
+                                                <div *ngIf="emailHotel.errors?.email">
+                                                    <small class="text-danger">The email address has an error.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <label for="Password">
+                                            <p>Password</p>
+                                        </label>
+                                        <input type="password" class="form-control" formControlName="password"
+                                            minlength="6"
+                                            [class.is-invalid]="passwordHotel.invalid && (passwordHotel.dirty || passwordHotel.touched)" />
+                                        <div *ngIf="(passwordHotel.valid && passwordHotel.touched) || passwordHotel.dirty">
+                                            <div *ngIf="passwordHotel.errors?.minlength">
+                                                <small class="text-danger">Password must be 6 characters long</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mx-auto">
+                                    <div class="col-lg-6">
+                                        <label for="emailtxt">
+                                            <p>Attach files such as : Passport, Medical diagnosis, etc. (images) </p>
+                                        </label>
+
+                                        <div *ngFor="let progressInfo of progressInfos" class="mb-2 row col-lg-12">
+                                            <span>{{ progressInfo.rows }}) {{ progressInfo.fileName }}</span>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <input type="file" class="btn btn-info file-select" accept="image/*"
+                                                    formControlName="files[]" (change)="fileArrList($event)" multiple />
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <button class="btn btn-warning mx-2" type="button" style="color: #fff;"
+                                                    (click)="clearFile()">
+                                                    <i class="glyphicon glyphicon-repeat"></i>&nbsp;Clear</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row mx-auto text-center">
+                                    <div class="col-lg-12" style="margin-top: 2.5rem!important;">
+                                        <button class="btn btn-lg btn-success mx-2" type="button"
+                                            (click)="registerAccount(registerHotel)">
+                                            <i class="glyphicon glyphicon-ok-sign"></i>&nbsp;Confirm</button>
+                                        <button class="btn btn-lg" type="button" style="color: #7b7d85;"><i
+                                                class="glyphicon glyphicon-repeat"></i>&nbsp;Reset</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div> -->
+
+                    <!-- Doctor (Telemedicine) -->
                     <div class="tab-pane" id="Register3">
                         <form>
                             <div class="row mx-auto">
@@ -654,7 +739,7 @@
                                 </div>
                             </div>
 
-                            <div class="row mx-auto" >
+                            <div class="row mx-auto">
                                 <div class="col-md-6">
                                     <label>Birthday *</label>
                                     <input type="date" class="form-control" id="Birthday" placeholder="Tel" />
@@ -669,10 +754,11 @@
                                 </div>
                             </div>
 
-                            <div class="row mx-auto" >
+                            <div class="row mx-auto">
                                 <div class="col-md-6">
                                     <label>Designation *</label>
-                                    <input type="text" class="form-control" id="Designation" placeholder="Designation" />
+                                    <input type="text" class="form-control" id="Designation"
+                                        placeholder="Designation" />
                                 </div>
                                 <div class="col-md-6">
                                     <label>Specialty *</label>
@@ -680,10 +766,11 @@
                                 </div>
                             </div>
 
-                            <div class="row mx-auto" >
+                            <div class="row mx-auto">
                                 <div class="col-md-6">
                                     <label>Languages Spoken *</label>
-                                    <input type="text" class="form-control" id="LanguagesSpoken" placeholder="Ex. English, Thai" />
+                                    <input type="text" class="form-control" id="LanguagesSpoken"
+                                        placeholder="Ex. English, Thai" />
                                 </div>
                                 <div class="col-md-6">
                                     <label>Workplace *</label>
@@ -691,28 +778,30 @@
                                 </div>
                             </div>
 
-                            <div class="row mx-auto" >
+                            <div class="row mx-auto">
                                 <div class="col-md-12">
                                     <label>Work Experience [1]*</label>
-                                    <input type="text" class="form-control" id="Experience1" placeholder="Ex. 2019-2020 : xxxxxx" />
+                                    <input type="text" class="form-control" id="Experience1"
+                                        placeholder="Ex. 2019-2020 : xxxxxx" />
                                 </div>
                             </div>
-                               
-                             <div class="row mx-auto" >
+
+                            <div class="row mx-auto">
                                 <div class="col-md-12">
                                     <label>Work Experience [2]*</label>
-                                    <input type="text" class="form-control" id="Experience2" placeholder="Ex. 2019-2020 : xxxxxx" />
+                                    <input type="text" class="form-control" id="Experience2"
+                                        placeholder="Ex. 2019-2020 : xxxxxx" />
                                 </div>
                             </div>
 
-                            <div class="row mx-auto" >
+                            <div class="row mx-auto">
                                 <div class="col-md-6">
                                     <label>Attach Profiles, etc. *</label>
-                                    <input type="file" class="form-control" id="profilesEtc"  />
+                                    <input type="file" class="form-control" id="profilesEtc" />
                                 </div>
                             </div>
 
-                            <div class="row mx-auto" >
+                            <div class="row mx-auto">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <!-- <input name="" type="checkbox" id="" class="cr" />
@@ -741,12 +830,23 @@
                     </div>
 
                     <!-- Travel Agent -->
-                    <div class="tab-pane" id="Register4">
-                        <h3>We use css to change the background color of the content to be equal to the tab</h3>
-                    </div>
+                    <!-- <div class="tab-pane" id="Register4">
+                        <form>
+                            <div class="row mx-auto">
+                                <div class="col-md-6 ">
+                                    <label>First name *</label>
+                                    <input type="text" class="form-control" id="fname" placeholder="First name" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Last name *</label>
+                                    <input type="text" class="form-control" id="lanme" placeholder="Last name" />
+                                </div>
+                            </div>
+                        </form>
+                    </div> -->
 
                     <!-- Facilitator -->
-                    <div class="tab-pane" id="Register5">
+                    <!-- <div class="tab-pane" id="Register5">
                         <form>
                             <div class="row mx-auto">
                                 <div class="col-md-6 ">
@@ -1044,11 +1144,6 @@
 
                                 <div class="col-md-6">
                                     <label>City *</label>
-                                    <!-- <select name="country" id="country" class="form-control" aria-required="true"
-                                        data-live-search="true">
-                                        <option value="">--- Choose ---</option>
-         
-                                    </select> -->
                                     <input type="text" class="form-control" id="city" placeholder="city" />
                                 </div>
                             </div>
@@ -1071,7 +1166,8 @@
                             <div class="row mx-auto">
                                 <div class="col-md-6">
                                     <label>Languages Spoken *</label>
-                                    <input type="text" class="form-control" id="LanguagesSpoken" placeholder="Ex. English, Thai" />
+                                    <input type="text" class="form-control" id="LanguagesSpoken"
+                                        placeholder="Ex. English, Thai" />
                                 </div>
                                 <div class="col-md-6">
                                     <label>Workplace *</label>
@@ -1082,29 +1178,29 @@
                             <div class="row mx-auto">
                                 <div class="col-md-12">
                                     <label>Work Experience [1]*</label>
-                                    <input type="text" class="form-control" id="Experience1" placeholder="Ex. 2019-2020 : xxxxxx" />
+                                    <input type="text" class="form-control" id="Experience1"
+                                        placeholder="Ex. 2019-2020 : xxxxxx" />
                                 </div>
                             </div>
-                               
-                             <div class="row mx-auto">
+
+                            <div class="row mx-auto">
                                 <div class="col-md-12">
                                     <label>Work Experience [2]*</label>
-                                    <input type="text" class="form-control" id="Experience2" placeholder="Ex. 2019-2020 : xxxxxx" />
+                                    <input type="text" class="form-control" id="Experience2"
+                                        placeholder="Ex. 2019-2020 : xxxxxx" />
                                 </div>
                             </div>
 
                             <div class="row mx-auto">
                                 <div class="col-md-6">
                                     <label>Attach Profiles, etc. *</label>
-                                    <input type="file" class="form-control" id="profilesEtc"  />
+                                    <input type="file" class="form-control" id="profilesEtc" />
                                 </div>
                             </div>
 
-                            <div class="row mx-auto" >
+                            <div class="row mx-auto">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <!-- <input name="" type="checkbox" id="" class="cr" />
-                                            <span id="" c style="font-size: 16px; color: red;"> ยอมรับเงื่อนไขการใช้งาน</span> -->
                                         <label class="customcheck">&nbsp;&nbsp;&nbsp;&nbsp;ยอมรับเงื่อนไขการใช้งาน
                                             <input type="checkbox">
                                             <span class="checkmark"></span>
@@ -1126,7 +1222,7 @@
                                 <button class="btn btn-success" type="submit">Submit</button>
                             </div>
                         </form>
-                    </div>
+                    </div> -->
 
                 </div>
 

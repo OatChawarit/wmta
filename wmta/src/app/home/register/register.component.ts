@@ -116,7 +116,7 @@ export class RegisterComponent implements OnInit {
       //sendData.append(`fileName`, file.name);
       //sendData.append('filePath', 'news');
       //});
-      this.servRegister.addAccount(sendData).subscribe((res) => {
+      this.servRegister.new(sendData).subscribe((res) => {
         this.resData = res;
         console.log(this.resData);
         if (this.resData.status == "false") {
