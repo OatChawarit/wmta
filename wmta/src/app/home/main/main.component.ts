@@ -41,7 +41,7 @@ export class MainComponent implements OnInit {
   //เรียงจากท้ายสุด 3 อันดับแรกของข่าว
    loadNews() {
     this.sharedServ.listNews().subscribe((res) => {
-      console.log(res);
+      //console.log(res);
       let sortdata : any = res.data.reverse();  //กลับด้านเอาท้ายสุดมาหน้าสุด
       for(let i = 0; i < 3; i++){
         let sendData = {
@@ -61,7 +61,7 @@ export class MainComponent implements OnInit {
   //เรียงจากท้ายสุด 6 อันดับแรกของสินค้า
    loadProducts(){
     this.productServ.listProduct().subscribe((res) => {
-      console.log(res);
+      //console.log(res);
       let sortdata : any = res.data.reverse();  //กลับด้านเอาท้ายสุดมาหน้าสุด
       for(let i = 0; i < 6; i++){
         let sendData = {

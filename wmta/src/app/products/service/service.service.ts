@@ -15,6 +15,10 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8' })
 };
 
+const httpOptions2 = {
+  headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data;' })
+};
+
 declare const $: any;
 
 @Injectable({
@@ -37,6 +41,21 @@ export class ProductsService {
     return this.http.get('https://api.logo-design360.com/wmta-api/public/api/products/'+ id).pipe(catchError((err) => this.handlerError(err)));
   }
 
+  newProduct(register: FormData): Observable<Register> {
+    return this.http
+      .post<Register>('https://api.logo-design360.com/wmta-api/public/api/products', register, httpOptions2)
+      .pipe(catchError((err) => this.handlerError(err)));
+  }
+
+  addProduct(products: FormData): Observable<dataResponse> {
+    return this.http.post<dataResponse>('https://api.logo-design360.com/wmta-api/public/api/products', products, httpOptions2)
+    .pipe( 
+      map((products: dataResponse) => {
+      return products;
+    }));
+  }
+
+
   handlerError(error: any): Observable<any> {
     let errorMessage = 'Error unknown';
     if (error) {
@@ -51,4 +70,37 @@ export class ProductsService {
     // console.error(error); 
     // return of(error.error as any);
   }
+}
+
+export interface Register {
+  //id: number;
+  age: number;
+  password: string;
+  fname: string;
+  lname: string;
+  status: string;
+  sex: string;
+  phone: string;
+  email: string;
+  image: any;
+  line: string;
+  type: string;
+  files: any;
+}
+
+
+export interface dataResponse extends dataRes {
+  code: number;
+  status: string;
+  message: string;
+  data: any[];
+}
+
+export interface dataRes {
+  name: string;
+  create_by: string;
+  update_by: string;
+  created_at: string;
+  updated_at: string;
+  status: string;
 }

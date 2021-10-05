@@ -1,32 +1,3 @@
-.nav-pillcustom > li > a {
-    border-radius: 4px;
-}
-
-.nav-pillcustom > li.active > a, .nav-pillcustom > li.active > a:hover, .nav-pillcustom > li.active > a:focus {
-    color: #ffffff;
-    background-color: #288a72;
-}
-
-.nav-pillcustom  > li {
-    float: left;
-}
-
-.nav > li > a {
-    position: relative;
-    display: block;
-    padding: 10px 15px;
-}
-
-.justify-content-between {
-    -ms-flex-pack: justify !important;
-    justify-content: space-between !important;
-  }
-  
-  .d-flex {
-    display: -ms-flexbox !important;
-    display: flex !important;
-  }
-
 
 .file-upload {
     display: none;

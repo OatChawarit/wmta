@@ -3,21 +3,23 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DynamicScriptLoaderService } from 'src/app/shared-service/dynamic-script-loader.service';
+import { BaseFormRegister } from 'src/app/shared-service/utils/base-form-register';
 import Swal from 'sweetalert2'
-import { ProductsService } from '../service/service.service';
+import { AuthService } from '../../home/login/service/auth.service'
+import { ServiceService } from '../service/service.service';
 
 declare const $: any;
-const users = JSON.parse(localStorage.getItem('user') || '{}');
+declare const M: any;
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  selector: 'app-hospital',
+  templateUrl: './hospital.component.html',
+  styleUrls: ['./hospital.component.css']
 })
-export class FormComponent implements OnInit {
+export class HospitalComponent implements OnInit {
 
-  mainPicture: any;
-  addProductForm : FormGroup;
+  imageSrcHospital : any;
+  //registerHospital : FormGroup;
   imageSelected:any;
   filesSelected:any;
   resData : any;
@@ -25,64 +27,52 @@ export class FormComponent implements OnInit {
 
   selectedFiles: FileList | undefined;
   progressInfos :  any;
-  userData : any;
 
-  imageDeleteFrom: FormGroup;
-  imageurls : any = [];
-  base64String: String | undefined;
-  name: String | undefined;
-  imagePath: String | undefined;
+  constructor(private router: Router, private http: HttpClient, private fb: FormBuilder, private dynamicScriptLoader : DynamicScriptLoaderService,
+    private servRegister : ServiceService, private authService: AuthService, public register : BaseFormRegister) { 
 
-  constructor( private router: Router, private http: HttpClient, private fb: FormBuilder, private dynamicScriptLoader : DynamicScriptLoaderService,
-    private productServ : ProductsService) {
-
-    this.addProductForm = this.fb.group({
-      user_id: ["", Validators.required],
-      title: ["", Validators.required],
-      main_picture: "",
-      shot_detail: "",
-      detail: "",
-      price: ["", Validators.required],
-      discount: "0",
-      images: []
-    });
-
-    this.imageDeleteFrom = this.fb.group({
-      id: [""],
-      ImagePath: [""]
-    });
-
-    this.userData = users;
-   }
-
-   get user_id(): any { return this.addProductForm.get('user_id'); }
-   get title(): any { return this.addProductForm.get('title'); }
-   get shot_detail(): any { return this.addProductForm.get('shot_detail'); }
-   get detail(): any { return this.addProductForm.get('detail'); }
-   get price(): any { return this.addProductForm.get('price'); }
-   get discount(): any { return this.addProductForm.get('discount'); }
-
-  ngOnInit(): void {
-    this.startScript();
-    //console.log(this.userData.data);
+      this.register.registerHospital = this.fb.group({
+        emailHospital: ["", [Validators.required, Validators.email]],
+        passwordHospital: ["", Validators.required, Validators.minLength(6)],
+        fnameHospital: "",
+        lnameHospital: "",
+        birthdayHospital: "",
+        ageHospital : "",
+        sexHospital: "",
+        phoneHospital: "",
+        positionHospital: "",
+        departmentHospital: "",
+        organizationHospital: "",
+        lineHospital:  "",
+        typeHospital: "2",  //0=สมาชิกทั่วไป 1=โรงแรม 2=โรงบาล
+        imageHospital: "",
+        filesHospital: []
+      });
+     ;
   }
 
-  addProduct(form: FormGroup) {
-    if (this.addProductForm.value.title == undefined ||this.addProductForm.value.title == "") {
+  ngOnInit(): void {
+    localStorage.setItem("typeTab", "Hospital");
+    console.log('loadHospital');
+    this.onLoad()
+  }
+
+  registerAccount(form: FormGroup) {
+    if (form.value.emailHospital == undefined || form.value.emailHospital == "") {
       Swal.fire(
         "Found an Error", //title
         "Incomplete information !!", //main text
         "warning" //icon
       );
     } 
-    else if (this.imageSelected == undefined || this.imageSelected == "") {
+    else if (this.imageSelected== undefined || this.imageSelected == "") {
       Swal.fire(
         "Found an Error", //title
         "No profile picture, please include a profile picture. !!", //main text
         "warning" //icon
       );
     }
-    else if (this.filesSelected == undefined || this.filesSelected == "") {
+    else if (this.filesSelected== undefined || this.filesSelected == "") {
       Swal.fire(
         "Found an Error", //title
         "Attach files such as : Passport, Medical diagnosis, etc. (.pdf, word, images) !!", //main text
@@ -90,19 +80,19 @@ export class FormComponent implements OnInit {
       );
     }
      else {
-      //console.log(this.registerForm.value);
+      //console.log(this.registerHospital.value);
       let sendData = new FormData();
-      sendData.append('user_id', form.value.user_id);
-      sendData.append('title', form.value.title);
-      sendData.append('fname', form.value.fname);
+      sendData.append('email', form.value.emailHospital);
+      sendData.append('password', form.value.passwordHospital);
+      sendData.append('fname', form.value.fnameHospital);
       sendData.append('lname', form.value.lname);
       sendData.append('birthday', form.value.birthday);
-      sendData.append('age', form.value.age);
-      sendData.append('sex', form.value.sex);
-      sendData.append('phone', form.value.phone);
-      sendData.append('line', form.value.line);
-      sendData.append('type', form.value.type);
-      if(this.imageSelected == undefined || this.imageSelected== ""){
+      sendData.append('age', form.value.ageHospital);
+      sendData.append('sex', form.value.sexHospital);
+      sendData.append('phone', form.value.phoneHospital);
+      sendData.append('line', form.value.lineHospital);
+      sendData.append('type', form.value.typeHospital);
+      if(this.imageSelected == undefined || this.imageSelected == ""){
         sendData.append('image', "")
       }else{
         sendData.append('image', this.imageSelected[0])
@@ -114,21 +104,14 @@ export class FormComponent implements OnInit {
       sendData.append('position', form.value.position);
       sendData.append('department', form.value.department);
       sendData.append('organization', form.value.organization);
- 
-      //console.log(sendData.getAll('files[]'));
-      //fileList =  this.imageSelected;
-      //Array.from(fileList).forEach((file: File, index) => {
-      //sendData.append(`image`, file);
-      //sendData.append(`fileName`, file.name);
-      //sendData.append('filePath', 'news');
-      //});
-      this.productServ.addProduct(sendData).subscribe((res) => {
+
+      this.servRegister.new(sendData).subscribe((res) => {
         this.resData = res;
         console.log(this.resData);
         if (this.resData.status == "false") {
           Swal.fire(
             "Found an Error", //title
-            "Error or duplicate email, ", //main text
+            "Error or duplicate emailHospital, ", //main text
             "warning" //icon
           );
         } else {
@@ -152,7 +135,7 @@ export class FormComponent implements OnInit {
       });
     }
   }
-
+  
   fileArrList(event : any) {
     const files: FileList = event.target.files;
     this.filesSelected = files;
@@ -167,36 +150,12 @@ export class FormComponent implements OnInit {
 
   clearFile(){
     this.progressInfos = [];
-    this.imageurls = [];
     $('.file-select').val('');
   }
 
   uploadBtn() : void {
     //console.log("click");
     $(".file-upload").click();
-  }
-
-  // removeImageEdit(i : any, imagepath : any) {
-  //   this.imageDeleteFrom.value.id = i;
-  //   this.imageDeleteFrom.value.ImagePath = imagepath;
-  // }
-
-  // removeImage(i : any) {
-  //   this.imageurls.splice(i, 1);
-  // }
-
-  onSelectFile(event:any) {
-    this.imageurls = [];
-    if (event.target.files && event.target.files[0]) {
-      var filesAmount = event.target.files.length;
-      for (let i = 0; i < filesAmount; i++) {
-        var reader = new FileReader();
-        reader.onload = (event: any) => {
-          this.imageurls.push({ base64String : event.target.result, });
-        }
-        reader.readAsDataURL(event.target.files[i]);
-      }
-    }
   }
 
   readFileImg(event:any): void {
@@ -210,14 +169,32 @@ export class FormComponent implements OnInit {
     if (event.target.files && event.target.files[0]) {
         const file = event.target.files[0];
         const reader = new FileReader();
-        reader.onload = e => this.mainPicture = reader.result;
+        reader.onload = e => this.imageSrcHospital = reader.result;
         reader.readAsDataURL(file);
     }
   }
-
-  onFileChange(file:any) {
-    //this.imageSelected = file;
-    let files : File = file[0];
+  
+  onLoad() : void {
+    this.progressInfos = [];
+    $('.file-select').val('');
+    this.register.registerHospital.patchValue({
+      emailHospital: "",
+      passwordHospital: "",
+      fnameHospital: "",
+      lnameHospital: "",
+      birthdayHospital: "",
+      ageHospital : "",
+      sexHospital : "",
+      phoneHospital : "",
+      positionHospital : "",
+      departmentHospital : "",
+      organizationHospital : "",
+      lineHospital :  "",
+      typeHospital : "2",  //0=สมาชิกทั่วไป 1=โรงแรม 2=โรงบาล
+      imageHospital : "",
+      filesHospital : []
+    });
+    this.imageSrcHospital = this.register.registerHospital.value.imageHospital;
   }
 
   async startScript() {

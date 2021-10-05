@@ -46,15 +46,22 @@ export class DetailComponent implements OnInit {
       },
     });
     this.productServ.getProduct(this.idpro).subscribe((res) => {
-      this.productData = res.data;
-      this.pathImg = res.data.path;
+      if(res.status == false){
+        Swal.fire(
+          "Found an Error", //title
+          "No information found. !!", //main text
+          "warning" //icon
+        );
+      }else{
+        this.productData = res.data;
+        this.pathImg = res.data.path;
+        setTimeout(() => {
+          Swal.close();
+          this.startScript();
+        }, 1500);
+      }
       //console.log(this.productData);
     });
-
-    setTimeout(() => {
-      Swal.close();
-      this.startScript();
-    }, 1000);
   }
 
   async startScript() {

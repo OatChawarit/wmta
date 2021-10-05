@@ -38,9 +38,20 @@ export class ListComponent implements OnInit {
     });
     this.productServ.listProduct().subscribe((res) => {
       console.log(res);
-      this.productData = res.data.reverse();  //กลับด้านเอาท้ายสุดมาหน้าสุด
-
-      Swal.close()
+      if(res.status == false){
+        Swal.fire(
+          "Found an Error", //title
+          "No information found. !!", //main text
+          "warning" //icon
+        );
+        this.startScript();
+      }else{
+        this.productData = res.data.reverse();  //กลับด้านเอาท้ายสุดมาหน้าสุด
+        setTimeout(() => {
+          Swal.close()
+          this.startScript();
+        }, 2000);
+      }
     });
   }
 

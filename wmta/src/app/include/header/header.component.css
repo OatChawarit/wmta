@@ -7,14 +7,16 @@
 
 
 .dropdown-menu {
-    left: 75% !important; 
+    left: 65% !important; 
     top: 120% !important; 
     padding: 10px 0px !important;
+    z-index: 1000000;
+    width: 225px;
 }
 
 @media (max-width: 767px)  {
     .dropdown-menu {
-        left: 55% !important; 
+        left: 45% !important; 
         top: 120% !important; 
         padding: 10px 0px !important;
     }

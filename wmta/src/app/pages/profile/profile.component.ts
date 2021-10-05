@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators, ValidationErrors } fro
 import { Router } from '@angular/router';
 import { AuthService } from '../../home/login/service/auth.service';
 import Swal from 'sweetalert2'
+import { DynamicScriptLoaderService } from 'src/app/shared-service/dynamic-script-loader.service';
 
 declare const $: any;
 declare const M: any;
@@ -75,7 +76,8 @@ export class ProfileComponent implements OnInit {
   userData : any;
   profileData : FormGroup;
 
-  constructor(private router: Router, private authService: AuthService, private fb : FormBuilder) {
+  constructor(private router: Router, private authService: AuthService, private fb : FormBuilder,
+    private dynamicScriptLoader : DynamicScriptLoaderService,) {
     this.userData = JSON.parse(localStorage.getItem('user') || '0');
     //this.imageSrc = "https://api.logo-design360.com/wmta-api/public" + this.userData.data.image;
     this.imageSrc = this.userData.data.image;
@@ -123,6 +125,7 @@ export class ProfileComponent implements OnInit {
       image: this.userData.data.image,
       files: [''],
     });
+    this.startScript();
   }
 
   onSave(form : FormGroup){
@@ -235,5 +238,11 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  async startScript() {
+    await this.dynamicScriptLoader.load('custom', 'respond.min', 'jquery.swipebox','jquery.velocity','jquery.validate.min','jquery.meanmenu.min',
+    'jquery.ui.core.min','jquery.jplayer.min','jquery-migrate-1.2.1.min','jquery-twitterFetcher','jquery.isotope.min','jquery.ui.datepicker.min',
+    'jquery.form','jquery.flexslider-min','jquery.autosize.min','jquery.appear','jquery-2.2.3.min').then(data => {
+    }).catch(error => console.log(error));
+  }
 
 }
